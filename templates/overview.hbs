@@ -1,0 +1,52 @@
+<div class="sft-shell">
+  <p class="sft-hint">{{text.hint}}</p>
+  <p class="sft-mode"><i class="fa-solid fa-circle-info" inert></i> {{text.mode}} <strong>{{modeText}}</strong></p>
+
+  <h4 class="sft-section">{{text.players}}</h4>
+  {{#if noPlayers}}
+  <p class="sft-empty"><i class="fa-solid fa-user-plus" inert></i> {{text.noPlayers}}</p>
+  {{/if}}
+  <div class="sft-rows">
+    {{#each players}}
+    <div class="sft-row" data-user-id="{{id}}" data-status="{{status}}">
+      <span class="sft-dot{{#if active}} is-online{{/if}}" style="--sft-user: {{color}}"
+        data-tooltip="{{#if active}}{{../text.online}}{{else}}{{../text.offline}}{{/if}}"></span>
+      <span class="sft-who">
+        <strong>{{name}}</strong>
+        {{#if character}}<small>{{character}}</small>{{/if}}
+      </span>
+      <span class="sft-progress" data-tooltip="{{counts}}">
+        <span class="sft-bar"><span style="width: {{percent}}%"></span></span>
+        <small>{{counts}}</small>
+      </span>
+      <span class="sft-badge" data-status="{{status}}">{{statusLabel}}</span>
+      <span class="sft-actions">
+        <button type="button" class="sft-icon" data-action="invite" data-tooltip="{{startLabel}}"
+          aria-label="{{startLabel}}"><i class="fa-solid fa-play" inert></i></button>
+        <button type="button" class="sft-icon{{#if isExperienced}} is-on{{/if}}" data-action="experienced"
+          data-tooltip="{{experiencedLabel}}" aria-label="{{experiencedLabel}}"><i class="fa-solid fa-graduation-cap" inert></i></button>
+        <button type="button" class="sft-icon" data-action="reset" data-tooltip="{{../text.reset}}"
+          aria-label="{{../text.reset}}"><i class="fa-solid fa-rotate-left" inert></i></button>
+      </span>
+    </div>
+    {{/each}}
+  </div>
+
+  <h4 class="sft-section">{{text.steps}}</h4>
+  <p class="sft-hint">{{text.stepsHint}}</p>
+  <div class="sft-steps">
+    {{#each steps}}
+    <label class="sft-step">
+      <input type="checkbox" data-step="{{id}}" {{#if offered}}checked{{/if}}>
+      <i class="{{icon}}" inert></i>
+      <span>{{title}}</span>
+    </label>
+    {{/each}}
+  </div>
+
+  <footer class="sft-foot">
+    <button type="button" data-action="preview"><i class="fa-solid fa-eye" inert></i> {{text.preview}}</button>
+    <span class="sft-spacer"></span>
+    <button type="button" data-action="allExperienced"><i class="fa-solid fa-graduation-cap" inert></i> {{text.allExperienced}}</button>
+  </footer>
+</div>

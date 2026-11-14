@@ -1,0 +1,219 @@
+{
+  "SFT": {
+    "gear": "Settings",
+    "LANGUAGE": {
+      "default": "Like Foundry",
+      "de": "Deutsch",
+      "en": "English"
+    },
+    "SETTINGS": {
+      "uiLanguage": {
+        "name": "Module language",
+        "hint": "Language of First Table on this device. \"Like Foundry\" follows Foundry's language."
+      },
+      "theme": {
+        "name": "Look",
+        "hint": "Signature shows the card and windows on warm paper, Foundry keeps them dark like the rest of Foundry.",
+        "signature": "Signature (paper)",
+        "foundry": "Foundry (dark)"
+      },
+      "offer": {
+        "name": "Offer the tour",
+        "hint": "Who gets the quick tour without asking for it. In a world that is already in use, the module starts with \"Only when I start it for a player\".",
+        "auto": "To new players at their first login",
+        "gm": "Only when I start it for a player",
+        "off": "Never on its own"
+      },
+      "helpButton": {
+        "name": "Help button",
+        "hint": "Show the small question mark in the controls on the left. It opens the tour, and for a GM the player overview."
+      }
+    },
+    "Tool": {
+      "help": "Quick tour",
+      "overview": "First Table: players"
+    },
+    "card": {
+      "label": "Quick tour for new players",
+      "kicker": "Quick tour, step {n} of {total}",
+      "pill": "Tour: {done} of {total}",
+      "pillShort": "Tour",
+      "unfold": "Open the tour card",
+      "fold": "Fold the card",
+      "show": "Show me",
+      "skip": "Skip",
+      "stop": "Stop the tour",
+      "close": "Close",
+      "again": "Start again"
+    },
+    "offer": {
+      "kicker": "Welcome",
+      "title": "Hello {name}, new at this table?",
+      "text": "A quick tour shows you the basics in about three minutes: your sheet, a roll, moving, pinging and the chat. It waits for you at every step, and you can stop whenever you like.",
+      "invited": "Your GM would like to show you around. It takes about three minutes, waits for you at every step, and you can stop whenever you like.",
+      "start": "Show me around",
+      "later": "Not now",
+      "known": "I know Foundry"
+    },
+    "missing": {
+      "ownToken": "None of your tokens is on this scene right now. Skip this step, or wait until your GM puts your token on the map.",
+      "otherToken": "There is no other token to point at on this scene. Skip this step if you do not want to wait.",
+      "canvas": "The map is not ready. Skip this step or wait a moment."
+    },
+    "menu": {
+      "kicker": "Quick tour",
+      "title": "Quick tour for new players",
+      "new": "A short guided tour of the basics, about three minutes. It waits for you at every step.",
+      "stopped": "You stopped after {done} of {total} steps. Go on where you left off or start again.",
+      "finished": "You finished the tour. Do you want to do it again?",
+      "experienced": "The tour is switched off for you. You can still take it if you like.",
+      "start": "Start the tour",
+      "continue": "Go on",
+      "again": "Start again"
+    },
+    "done": {
+      "kicker": "All done",
+      "title": "That is the basics. Have fun!",
+      "text": "You can start the tour again from the question mark in the controls on the left, or from the module settings."
+    },
+    "STEPS": {
+      "sheet": {
+        "title": "This is your character",
+        "text": "Your character sheet holds everything about your hero: abilities, items, spells and notes. You will use it a lot.",
+        "do": "Double click your token on the map, or press C, to open your sheet.",
+        "done": "That is your sheet."
+      },
+      "roll": {
+        "title": "Roll the dice",
+        "text": "Almost everything in the game starts with a roll. You roll from your sheet, and the result lands in the chat for everybody at the table.",
+        "do": "Open your sheet and click something that rolls, for example a skill or an ability. If a small window asks for details, confirm the roll.",
+        "doDnd5e": "On your sheet click the name of a skill, for example Perception, or an ability like Strength. If a window asks for details, confirm the roll.",
+        "doPf2e": "On your sheet click the name of a skill or a saving throw. The attack button of a weapon rolls an attack.",
+        "doSwade": "On your sheet click a skill or an attribute to roll it.",
+        "doCrucible": "On your sheet click a skill or an action to roll it. The result lands in the chat.",
+        "done": "Rolled. Everybody can see the result in the chat."
+      },
+      "moveKeys": {
+        "title": "Move with the keys",
+        "text": "Click your token once to select it. Then you can walk it across the map with the keyboard.",
+        "do": "Press W, A, S and D.",
+        "doV13": "Press the arrow keys, or W, A, S and D.",
+        "done": "Nice, your token walked."
+      },
+      "moveDrag": {
+        "title": "Move by dragging",
+        "text": "You can also grab your token and drag it to where you want to go. The ruler shows how far you go.",
+        "do": "Click your token, hold the button, drag it to another square and let go.",
+        "done": "Dragged. Both ways work."
+      },
+      "target": {
+        "title": "Pick a target",
+        "text": "Before an attack or a spell you pick your target. A marker shows who you are pointing at.",
+        "do": "Point at another token and press T, or click it with the target tool in the controls on the left.",
+        "done": "Target picked."
+      },
+      "ping": {
+        "title": "Ping the map",
+        "text": "A ping shows everybody what you are talking about. It is the quickest way to say: here, look at this.",
+        "do": "Press and hold the mouse button on a spot of the map until a ring appears.",
+        "done": "Pinged. Everybody saw that."
+      },
+      "measure": {
+        "title": "Measure a distance",
+        "text": "How far is it to the door? The ruler tells you.",
+        "do": "Pick the ruler in the controls on the left, then drag across the map.",
+        "done": "Measured."
+      },
+      "chat": {
+        "title": "Say something in the chat",
+        "text": "The chat on the right is where rolls, messages and the story land. You can write to everybody or to single people.",
+        "do": "Click the chat box and write a line. To try it quietly, whisper to yourself: type /w, your name and the text.",
+        "done": "Message sent."
+      },
+      "whisper": {
+        "title": "Whisper to the GM",
+        "text": "Whispers are private. Use one to ask your GM something, or to say what your character does in secret.",
+        "do": "Type /w gm and your message, for example /w gm Hello!",
+        "done": "Your GM got the whisper."
+      },
+      "journal": {
+        "title": "Journals and handouts",
+        "text": "Maps, notes and handouts your GM shares with you live in the Journal tab of the sidebar. Look there when you want to read something again.",
+        "do": "Open the Journal tab in the sidebar, the book icon, and open an entry.",
+        "done": "That is where the story notes live."
+      }
+    },
+    "TourMenu": {
+      "title": "Quick tour for new players",
+      "open": "Open the tour",
+      "hint": "Shows the short guided tour of the basics. A GM sees it as a preview, nothing is saved."
+    },
+    "Overview": {
+      "title": "First Table",
+      "open": "Open the player overview",
+      "menuHint": "See who finished the tour, start it for a player, mark players as experienced and choose the steps.",
+      "hint": "New players get the quick tour by themselves at their first login. Here you see how far everybody is.",
+      "modeLabel": "Offered on its own:",
+      "mode": {
+        "auto": "to new players at their first login",
+        "gm": "only when you start it for a player",
+        "off": "never"
+      },
+      "players": "Players",
+      "noPlayers": "No players yet. Create users and they appear here.",
+      "status": {
+        "new": "Not started",
+        "running": "Running",
+        "finished": "Finished",
+        "stopped": "Stopped",
+        "experienced": "Experienced",
+        "later": "Asked later"
+      },
+      "counts": "{done} of {total}",
+      "start": "Start the tour for this player",
+      "startAgain": "Start the tour for this player again",
+      "experienced": "Mark as experienced",
+      "notExperienced": "Take the experienced mark away",
+      "reset": "Forget the tour for this player",
+      "invited": "{name} will be asked to take the tour.",
+      "online": "Online",
+      "offline": "Offline",
+      "steps": "Steps offered",
+      "stepsHint": "Untick a step to leave it out for everybody.",
+      "preview": "Try the tour myself",
+      "allExperienced": "Mark everybody as experienced",
+      "allExperiencedAsk": "Everybody who has not met the tour yet is marked as experienced and will not be offered it. Players who already started keep their progress.",
+      "allExperiencedYes": "Mark them",
+      "cancel": "Cancel"
+    },
+    "SELFTEST": {
+      "Title": "Self test",
+      "Run": "Run self test",
+      "Hint": "Checks after an update that everything the module relies on is there.",
+      "Passed": "Self test passed: {checks} checks.",
+      "Problems": "Self test: {problems} problems in {checks} checks.",
+      "Version": "Foundry {current}, verified with {tested}.",
+      "NewVersions": "Foundry is newer than the verified version ({versions}). Run the self test if something looks wrong.",
+      "Dialog": "Foundry's dialogs are missing.",
+      "Application": "Foundry's window classes are missing.",
+      "Templates": "Foundry's template renderer is missing.",
+      "Template": "The template {file} cannot be loaded.",
+      "Chat": "Foundry's chat styles are built differently than expected. Typed messages are not recognized.",
+      "Sidebar": "Foundry's sidebar or key bindings are built differently than expected.",
+      "User": "User data cannot be written, so the progress of the tour would be lost.",
+      "I18n": "Foundry's translation service is missing.",
+      "Ping": "The pings of the map are built differently than expected. The step Ping the map is not recognized.",
+      "Ruler": "Foundry's ruler is built differently than expected. The step Measure a distance is not recognized.",
+      "Canvas": "The map cannot give screen positions. The ring around tokens is missing.",
+      "Logic": "Recognizing the steps gives wrong results.",
+      "Texts": "Missing texts: {keys}"
+    },
+    "DEBUG": {
+      "Title": "Debug file",
+      "Save": "Save debug file",
+      "Hint": "One file about all of Sephral's modules in this world, for bug reports. It contains chat text and whispers.",
+      "Entry": "First Table",
+      "Saved": "Debug file saved: {file}. It contains chat text and whispers, check it before you share it."
+    }
+  }
+}

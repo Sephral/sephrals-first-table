@@ -1,0 +1,35 @@
+{
+  "id": "sephrals-first-table",
+  "title": "Sephral’s First Table",
+  "description": "A short, friendly first session for new players that starts by itself at their first login: character sheet, a roll, moving, targeting, pinging, measuring, chat and journal. Every step waits until the player has really done it, and the GM sees who finished.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": 13,
+    "verified": "14.370"
+  },
+  "authors": [
+    {
+      "name": "Sephral",
+      "url": "https://github.com/Sephral"
+    }
+  ],
+  "url": "https://github.com/Sephral/sephrals-first-table.git",
+  "esmodules": [
+    "scripts/sft.mjs"
+  ],
+  "styles": [
+    "styles/sft.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "lang/de.json"
+    }
+  ]
+}

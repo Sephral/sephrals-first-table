@@ -1,0 +1,219 @@
+{
+  "SFT": {
+    "gear": "Einstellungen",
+    "LANGUAGE": {
+      "default": "Wie Foundry",
+      "de": "Deutsch",
+      "en": "English"
+    },
+    "SETTINGS": {
+      "uiLanguage": {
+        "name": "Sprache des Moduls",
+        "hint": "Sprache von First Table auf diesem Gerät. \"Wie Foundry\" folgt der Sprache von Foundry."
+      },
+      "theme": {
+        "name": "Aussehen",
+        "hint": "Signature zeigt Karte und Fenster auf warmem Papier, Foundry hält sie dunkel wie den Rest von Foundry.",
+        "signature": "Signature (Papier)",
+        "foundry": "Foundry (dunkel)"
+      },
+      "offer": {
+        "name": "Tour anbieten",
+        "hint": "Wer die kurze Tour angeboten bekommt, ohne danach zu fragen. In einer Welt, die schon in Benutzung ist, startet das Modul mit \"Nur wenn ich sie für einen Spieler starte\".",
+        "auto": "Neuen Spielern bei der ersten Anmeldung",
+        "gm": "Nur wenn ich sie für einen Spieler starte",
+        "off": "Nie von selbst"
+      },
+      "helpButton": {
+        "name": "Hilfeknopf",
+        "hint": "Zeigt das kleine Fragezeichen in der Leiste links. Es öffnet die Tour, für SL die Spielerübersicht."
+      }
+    },
+    "Tool": {
+      "help": "Kurze Tour",
+      "overview": "First Table: Spieler"
+    },
+    "card": {
+      "label": "Kurze Tour für neue Spieler",
+      "kicker": "Kurze Tour, Schritt {n} von {total}",
+      "pill": "Tour: {done} von {total}",
+      "pillShort": "Tour",
+      "unfold": "Tourkarte öffnen",
+      "fold": "Karte einklappen",
+      "show": "Zeig mir",
+      "skip": "Überspringen",
+      "stop": "Tour beenden",
+      "close": "Schließen",
+      "again": "Noch einmal"
+    },
+    "offer": {
+      "kicker": "Willkommen",
+      "title": "Hallo {name}, neu am Tisch?",
+      "text": "Eine kurze Tour zeigt dir in etwa drei Minuten das Wichtigste: deinen Bogen, einen Wurf, Bewegen, Anpingen und den Chat. Sie wartet bei jedem Schritt auf dich, und du kannst jederzeit aufhören.",
+      "invited": "Dein SL möchte dir kurz alles zeigen. Das dauert etwa drei Minuten, wartet bei jedem Schritt auf dich, und du kannst jederzeit aufhören.",
+      "start": "Zeig es mir",
+      "later": "Jetzt nicht",
+      "known": "Ich kenne Foundry"
+    },
+    "missing": {
+      "ownToken": "Keines deiner Tokens ist gerade auf dieser Szene. Überspringe den Schritt oder warte, bis dein SL dein Token auf die Karte setzt.",
+      "otherToken": "Auf dieser Szene gibt es kein anderes Token zum Anvisieren. Überspringe den Schritt, wenn du nicht warten willst.",
+      "canvas": "Die Karte ist noch nicht bereit. Überspringe den Schritt oder warte einen Moment."
+    },
+    "menu": {
+      "kicker": "Kurze Tour",
+      "title": "Kurze Tour für neue Spieler",
+      "new": "Eine kurze Führung durch das Wichtigste, etwa drei Minuten. Sie wartet bei jedem Schritt auf dich.",
+      "stopped": "Du hast nach {done} von {total} Schritten aufgehört. Mach weiter, wo du warst, oder fang neu an.",
+      "finished": "Du hast die Tour geschafft. Möchtest du sie noch einmal machen?",
+      "experienced": "Die Tour ist für dich ausgeschaltet. Du kannst sie trotzdem machen, wenn du magst.",
+      "start": "Tour starten",
+      "continue": "Weitermachen",
+      "again": "Neu anfangen"
+    },
+    "done": {
+      "kicker": "Geschafft",
+      "title": "Das war das Wichtigste. Viel Spaß!",
+      "text": "Du kannst die Tour jederzeit mit dem Fragezeichen in der Leiste links oder in den Moduleinstellungen noch einmal starten."
+    },
+    "STEPS": {
+      "sheet": {
+        "title": "Das ist dein Charakter",
+        "text": "Auf deinem Charakterbogen steht alles über deine Figur: Werte, Gegenstände, Zauber und Notizen. Du wirst ihn oft brauchen.",
+        "do": "Doppelklicke dein Token auf der Karte oder drücke C, dann öffnet sich dein Bogen.",
+        "done": "Das ist dein Bogen."
+      },
+      "roll": {
+        "title": "Würfle",
+        "text": "Fast alles im Spiel beginnt mit einem Wurf. Gewürfelt wird vom Charakterbogen aus, und das Ergebnis erscheint im Chat für alle am Tisch.",
+        "do": "Öffne deinen Bogen und klicke auf etwas, das würfelt, zum Beispiel eine Fertigkeit oder ein Attribut. Fragt ein kleines Fenster nach Einzelheiten, bestätige den Wurf.",
+        "doDnd5e": "Klicke auf deinem Bogen auf den Namen einer Fertigkeit, zum Beispiel Wahrnehmung, oder auf ein Attribut wie Stärke. Fragt ein Fenster nach Einzelheiten, bestätige den Wurf.",
+        "doPf2e": "Klicke auf deinem Bogen auf den Namen einer Fertigkeit oder eines Rettungswurfs. Der Angriffsknopf einer Waffe würfelt einen Angriff.",
+        "doSwade": "Klicke auf deinem Bogen auf eine Fertigkeit oder ein Attribut, um zu würfeln.",
+        "doCrucible": "Klicke auf deinem Bogen auf eine Fertigkeit oder eine Aktion, um zu würfeln. Das Ergebnis erscheint im Chat.",
+        "done": "Gewürfelt. Alle sehen das Ergebnis im Chat."
+      },
+      "moveKeys": {
+        "title": "Mit der Tastatur bewegen",
+        "text": "Klicke dein Token einmal an, um es auszuwählen. Dann kannst du es mit der Tastatur über die Karte laufen lassen.",
+        "do": "Drücke W, A, S und D.",
+        "doV13": "Drücke die Pfeiltasten oder W, A, S und D.",
+        "done": "Gut, dein Token ist gelaufen."
+      },
+      "moveDrag": {
+        "title": "Per Ziehen bewegen",
+        "text": "Du kannst dein Token auch greifen und dorthin ziehen, wo du hinwillst. Das Lineal zeigt dir, wie weit du gehst.",
+        "do": "Klicke dein Token an, halte die Taste gedrückt, ziehe es auf ein anderes Feld und lass los.",
+        "done": "Gezogen. Beide Wege funktionieren."
+      },
+      "target": {
+        "title": "Ein Ziel wählen",
+        "text": "Vor einem Angriff oder Zauber wählst du dein Ziel. Eine Markierung zeigt dir, auf wen du zeigst.",
+        "do": "Zeige auf ein anderes Token und drücke T, oder klicke es mit dem Zielwerkzeug in der Leiste links an.",
+        "done": "Ziel gewählt."
+      },
+      "ping": {
+        "title": "Die Karte anpingen",
+        "text": "Ein Ping zeigt allen, wovon du gerade sprichst. So sagst du am schnellsten: Hier, schaut mal.",
+        "do": "Halte die Maustaste auf einer Stelle der Karte gedrückt, bis ein Ring erscheint.",
+        "done": "Angepingt. Alle haben es gesehen."
+      },
+      "measure": {
+        "title": "Eine Strecke messen",
+        "text": "Wie weit ist es bis zur Tür? Das Lineal sagt es dir.",
+        "do": "Wähle das Lineal in der Leiste links und ziehe dann über die Karte.",
+        "done": "Gemessen."
+      },
+      "chat": {
+        "title": "Etwas in den Chat schreiben",
+        "text": "Im Chat rechts landen Würfe, Nachrichten und die Geschichte. Du kannst an alle schreiben oder an einzelne.",
+        "do": "Klicke in das Chatfeld und schreibe eine Zeile. Zum stillen Ausprobieren flüstere dir selbst: Tippe /w, deinen Namen und den Text.",
+        "done": "Nachricht gesendet."
+      },
+      "whisper": {
+        "title": "Dem SL flüstern",
+        "text": "Geflüstertes ist privat. Nutze es, um deinen SL etwas zu fragen oder zu sagen, was deine Figur heimlich tut.",
+        "do": "Tippe /w gm und deine Nachricht, zum Beispiel /w gm Hallo!",
+        "done": "Dein SL hat das Flüstern bekommen."
+      },
+      "journal": {
+        "title": "Journale und Handouts",
+        "text": "Karten, Notizen und Handouts, die dein SL mit dir teilt, liegen im Reiter Journal in der Seitenleiste. Schau dort nach, wenn du etwas nachlesen willst.",
+        "do": "Öffne in der Seitenleiste den Reiter Journal, das Buchsymbol, und öffne einen Eintrag.",
+        "done": "Dort liegen die Notizen zur Geschichte."
+      }
+    },
+    "TourMenu": {
+      "title": "Kurze Tour für neue Spieler",
+      "open": "Tour öffnen",
+      "hint": "Zeigt die kurze Führung durch das Wichtigste. SL sehen sie als Vorschau, es wird nichts gespeichert."
+    },
+    "Overview": {
+      "title": "First Table",
+      "open": "Spielerübersicht öffnen",
+      "menuHint": "Sieh, wer die Tour geschafft hat, starte sie für einen Spieler, markiere Spieler als erfahren und wähle die Schritte.",
+      "hint": "Neue Spieler bekommen die kurze Tour von selbst bei ihrer ersten Anmeldung. Hier siehst du, wie weit alle sind.",
+      "modeLabel": "Angeboten wird sie:",
+      "mode": {
+        "auto": "neuen Spielern bei der ersten Anmeldung",
+        "gm": "nur, wenn du sie für einen Spieler startest",
+        "off": "nie"
+      },
+      "players": "Spieler",
+      "noPlayers": "Noch keine Spieler. Lege Benutzer an, dann erscheinen sie hier.",
+      "status": {
+        "new": "Nicht gestartet",
+        "running": "Läuft",
+        "finished": "Geschafft",
+        "stopped": "Abgebrochen",
+        "experienced": "Erfahren",
+        "later": "Später"
+      },
+      "counts": "{done} von {total}",
+      "start": "Tour für diesen Spieler starten",
+      "startAgain": "Tour für diesen Spieler noch einmal starten",
+      "experienced": "Als erfahren markieren",
+      "notExperienced": "Markierung erfahren entfernen",
+      "reset": "Tour für diesen Spieler vergessen",
+      "invited": "{name} wird gefragt, ob die Tour starten soll.",
+      "online": "Online",
+      "offline": "Offline",
+      "steps": "Angebotene Schritte",
+      "stepsHint": "Nimm den Haken weg, um einen Schritt für alle wegzulassen.",
+      "preview": "Tour selbst ausprobieren",
+      "allExperienced": "Alle als erfahren markieren",
+      "allExperiencedAsk": "Alle, die die Tour noch nicht kennen, werden als erfahren markiert und bekommen sie nicht angeboten. Spieler, die schon angefangen haben, behalten ihren Stand.",
+      "allExperiencedYes": "Markieren",
+      "cancel": "Abbrechen"
+    },
+    "SELFTEST": {
+      "Title": "Selbsttest",
+      "Run": "Selbsttest starten",
+      "Hint": "Prüft nach einem Update, ob alles da ist, worauf sich das Modul stützt.",
+      "Passed": "Selbsttest bestanden: {checks} Prüfungen.",
+      "Problems": "Selbsttest: {problems} Probleme in {checks} Prüfungen.",
+      "Version": "Foundry {current}, geprüft mit {tested}.",
+      "NewVersions": "Foundry ist neuer als die geprüfte Version ({versions}). Starte den Selbsttest, wenn etwas nicht stimmt.",
+      "Dialog": "Die Dialoge von Foundry fehlen.",
+      "Application": "Die Fensterklassen von Foundry fehlen.",
+      "Templates": "Die Vorlagenfunktion von Foundry fehlt.",
+      "Template": "Die Vorlage {file} lässt sich nicht laden.",
+      "Chat": "Die Chatstile von Foundry sind anders aufgebaut als erwartet. Getippte Nachrichten werden nicht erkannt.",
+      "Sidebar": "Die Seitenleiste oder die Tastenbelegung von Foundry ist anders aufgebaut als erwartet.",
+      "User": "Benutzerdaten lassen sich nicht schreiben, der Fortschritt der Tour ginge verloren.",
+      "I18n": "Der Übersetzungsdienst von Foundry fehlt.",
+      "Ping": "Die Pings der Karte sind anders aufgebaut als erwartet. Der Schritt Die Karte anpingen wird nicht erkannt.",
+      "Ruler": "Das Lineal von Foundry ist anders aufgebaut als erwartet. Der Schritt Eine Strecke messen wird nicht erkannt.",
+      "Canvas": "Die Karte kann keine Bildschirmpositionen liefern. Der Ring um Tokens fehlt.",
+      "Logic": "Die Erkennung der Schritte gibt falsche Ergebnisse.",
+      "Texts": "Fehlende Texte: {keys}"
+    },
+    "DEBUG": {
+      "Title": "Debug-Datei",
+      "Save": "Debug-Datei speichern",
+      "Hint": "Eine Datei über alle Module von Sephral in dieser Welt, für Fehlerberichte. Sie enthält Chattexte und Flüstern.",
+      "Entry": "First Table",
+      "Saved": "Debug-Datei gespeichert: {file}. Sie enthält Chattexte und Flüstern, prüfe sie, bevor du sie weitergibst."
+    }
+  }
+}
