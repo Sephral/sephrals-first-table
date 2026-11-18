@@ -444,3 +444,132 @@
     display: none;
   }
 }
+
+/* Chapters: the choice list of the card and the chips of the overview */
+
+.sft-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: min(400px, 48vh);
+  margin: 8px 0 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.sft-card button.sft-choice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.sft-card button.sft-choice.is-primary {
+  border-color: var(--sft-accent);
+}
+
+.sft-choice-icon {
+  width: 18px;
+  text-align: center;
+  color: var(--sft-accent);
+}
+
+.sft-choice-text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.sft-choice-text small {
+  color: var(--sft-muted);
+}
+
+.sft-choice-state {
+  color: var(--sft-muted);
+}
+
+.sft-choice[data-state="done"] .sft-choice-state {
+  color: var(--sft-good);
+}
+
+.sft-card[data-mode="tip"] .sft-icon {
+  color: var(--sft-accent);
+}
+
+.sft-chapters {
+  display: flex;
+  flex-wrap: wrap;
+  grid-column: 1 / -1;
+  gap: 4px;
+}
+
+.sft-app button.sft-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 1px 8px;
+  font-size: 11px;
+}
+
+.sft-app button.sft-chip small {
+  color: var(--sft-muted);
+}
+
+.sft-app button.sft-chip[data-state="done"] {
+  border-color: var(--sft-good);
+  color: var(--sft-good);
+}
+
+.sft-app button.sft-chip[data-state="part"] {
+  border-color: var(--sft-accent);
+}
+
+.sft-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sft-group > summary {
+  cursor: pointer;
+}
+
+.sft-group > .sft-steps {
+  padding: 4px 0 6px 26px;
+}
+
+.sft-group > summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sft-group > summary i {
+  width: 16px;
+  text-align: center;
+  color: var(--sft-accent);
+}
+
+.sft-list li {
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+}
+
+.sft-card button.sft-redo {
+  flex: none;
+  min-width: 28px;
+  padding: 2px 6px;
+  order: 2;
+}
+
+.sft-list li .sft-choice {
+  flex: 1;
+  width: auto;
+  order: 1;
+}

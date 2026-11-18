@@ -18,7 +18,8 @@ export const SETTINGS = {
     signature: "SFT.SETTINGS.theme.signature", foundry: "SFT.SETTINGS.theme.foundry"}},
   offer: {type: String, default: "auto", choices: {
     auto: "SFT.SETTINGS.offer.auto", gm: "SFT.SETTINGS.offer.gm", off: "SFT.SETTINGS.offer.off"}},
-  helpButton: {type: Boolean, default: true, scope: "client", onChange: "helpButton"}
+  helpButton: {type: Boolean, default: true, scope: "client", onChange: "helpButton"},
+  tips: {type: Boolean, default: true, scope: "client"}
 };
 
 /** The functions the menus call, set by registerSettings. */
@@ -26,7 +27,7 @@ let menuHandlers = {};
 
 /**
  * Register all settings of the module and its menus.
- * @param {object} handlers   {language, redraw, helpButton, steps, openOverview, startTour}
+ * @param {object} handlers   {language, redraw, helpButton, steps, chapters, openOverview, startTour}
  */
 export function registerSettings(handlers) {
   menuHandlers = handlers;
@@ -44,9 +45,11 @@ export function registerSettings(handlers) {
     });
   }
 
-  // Data of the module: the steps the GM turned off, whether the world was looked at once, where the player put the card
+  // Data of the module: the chapters and steps the GM turned off, whether the world was looked at once, where the player put the card
   game.settings.register(MODULE_ID, "steps", {scope: "world", config: false, type: Object, default: {disabled: []},
     onChange: value => handlers.steps?.(value)});
+  game.settings.register(MODULE_ID, "chapters", {scope: "world", config: false, type: Object, default: {disabled: []},
+    onChange: value => handlers.chapters?.(value)});
   game.settings.register(MODULE_ID, "baselined", {scope: "world", config: false, type: Boolean, default: false});
   game.settings.register(MODULE_ID, "cardPlace", {scope: "client", config: false, type: Object, default: {}});
   game.settings.register(MODULE_ID, "acknowledgedVersions", {scope: "client", config: false, type: String, default: ""});

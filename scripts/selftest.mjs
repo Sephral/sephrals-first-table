@@ -3,8 +3,8 @@
  */
 
 import {MODULE_ID, TEMPLATES, TESTED_VERSIONS, esc, t} from "./config.mjs";
-import {STEP_IDS, chatEvents, classifyMove, isMeasuring, offerKind, planSteps, progressDelta, startProgress, markStep,
-  currentStep} from "./tour-logic.mjs";
+import {CHAPTER_IDS, STEP_IDS, appKind, chatEvents, classifyMove, completes, controlEvent, isMeasuring, offerKind,
+  permissiveContext, planSteps, progressDelta, startProgress, markStep, currentStep, tipDue} from "./tour-logic.mjs";
 
 /**
  * Run all checks.
@@ -34,6 +34,12 @@ async function checkAll() {
   check(typeof game.user?.update === "function" && !!game.users && (typeof game.users.activeGM !== "undefined"),
     "SFT.SELFTEST.User");
   check(!!game.i18n && (typeof game.i18n.has === "function"), "SFT.SELFTEST.I18n");
+  // What the chapters point at: the sidebar tabs and the scene controls
+  const tabs = document.querySelectorAll("#sidebar-tabs [data-tab]");
+  check((tabs.length > 0) && !!document.querySelector("#scene-controls [data-control]") && !!ui.controls?.controls,
+    "SFT.SELFTEST.Ui");
+  check(!!document.querySelector("#chat-controls") && !!document.querySelector("#hotbar") && !!document.querySelector("#players"),
+    "SFT.SELFTEST.Chat2");
   if ( canvas?.ready ) {
     const controls = canvas.controls;
     check(!!controls?.pings && (typeof controls.pings.on === "function") && (typeof canvas.ping === "function"),
@@ -44,22 +50,27 @@ async function checkAll() {
   }
 
   // The logic on a small example
-  const ctx = {character: true, ownToken: true, otherToken: false, canvas: true};
-  let progress = startProgress({}, 1);
+  const ctx = {...permissiveContext("dnd5e"), otherToken: false};
+  let progress = startProgress({}, 1, {chapter: "basics"});
   progress = markStep(progress, "sheet", "done", 2);
-  const list = planSteps({offered: STEP_IDS, progress, ctx});
+  const list = planSteps({offered: STEP_IDS, progress, ctx, chapter: "basics"});
   const next = currentStep(list);
-  check((list.length === STEP_IDS.length) && (next?.id === "roll")
+  check((list.length === 10) && (next?.id === "roll") && (CHAPTER_IDS.length === 7) && completes("sbChat", "tab:chat")
+    && (controlEvent("regions") === "control:shapes") && (appKind({id: "controls"}) === "controls")
+    && !tipDue({tip: "combatStart", progress: {chapters: ["fight"]}, mode: "auto", isGM: false})
+    && tipDue({tip: "combatStart", progress: {}, mode: "auto", isGM: false})
     && (classifyMove({now: 100, lastKeyAt: 90, lastPointerAt: 0}) === "keys")
     && (classifyMove({now: 100, lastKeyAt: 0, lastPointerAt: 90}) === "drag")
-    && (chatEvents({authorId: "a", rolls: 0, whisper: ["g"], style: 0}, {userId: "a", isGm: id => id === "g"}).join() === "chat,whisper")
+    && (chatEvents({authorId: "a", rolls: 0, whisper: ["g"], style: 0}, {userId: "a", isGm: id => id === "g"}).join() === "chat,whisper,whisper:any")
     && isMeasuring([{x: 0, y: 0}, {x: 5, y: 0}]) && !isMeasuring([{x: 1, y: 1}])
     && (offerKind({progress: {}, mode: "auto", isGM: false}) === "offer")
     && progressDelta({}, progress).done === 1, "SFT.SELFTEST.Logic");
 
   // Every step has its texts
   const keys = ["SFT.gear", "SFT.SELFTEST.Title", "SFT.Overview.title", "SFT.offer.title", "SFT.done.title", "SFT.menu.title"];
-  for ( const id of STEP_IDS ) keys.push(`SFT.STEPS.${id}.title`, `SFT.STEPS.${id}.text`, `SFT.STEPS.${id}.do`, `SFT.STEPS.${id}.done`);
+  for ( const id of STEP_IDS ) keys.push(`SFT.STEPS.${id}.title`, `SFT.STEPS.${id}.text`, `SFT.STEPS.${id}.do`);
+  for ( const id of CHAPTER_IDS ) keys.push(`SFT.CHAPTERS.${id}.title`);
+  keys.push("SFT.TIPS.combatStart.title", "SFT.TIPS.myTurn.title", "SFT.card.doneGeneral");
   const missing = keys.filter(key => !game.i18n.has(key));
   check(!missing.length, "SFT.SELFTEST.Texts", {keys: missing.join(", ")});
   return {problems, checks};

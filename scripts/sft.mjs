@@ -7,8 +7,9 @@ import {openOverview, refreshOverview, syncSteps} from "./overview-app.mjs";
 import {inviteUser, progressOf, resetUser, saveProgress, touchesFlags} from "./progress.mjs";
 import {noticeNewVersions, runSelfTest} from "./selftest.mjs";
 import {changeLanguage, registerSettings} from "./settings.mjs";
-import {connect, currentStepId, help, isRunning, offered, redraw, start, startTour, stop} from "./tour.mjs";
-import {STEP_IDS, experiencedProgress, isEstablished, progressDelta} from "./tour-logic.mjs";
+import {connect, currentChapter, currentStepId, help, isRunning, offered, offeredChapterIds, redraw, start, startTour,
+  stop} from "./tour.mjs";
+import {CHAPTER_IDS, STEP_IDS, experiencedProgress, isEstablished, progressDelta} from "./tour-logic.mjs";
 import {countFeature, registerUsage} from "./usage.mjs";
 
 /** The name of the help tool in the scene controls. */
@@ -30,6 +31,11 @@ Hooks.once("init", () => {
       syncSteps();
       redraw();
     },
+    chapters: () => {
+      syncSteps();
+      redraw();
+      refreshOverview();
+    },
     openOverview,
     startTour: () => help()
   });
@@ -37,8 +43,9 @@ Hooks.once("init", () => {
   // progress, which the active GM compares with what it saw before (see countChanges).
   registerUsage(MODULE_ID, {
     features: ["tourStarted", "tourFinished", "tourStopped", "stepDone", "stepSkipped", "markedExperienced",
-      "startedForPlayer", "stepsChanged", "previewStarted", "overviewOpened"],
-    settings: ["offer", "helpButton", "theme"]
+      "startedForPlayer", "stepsChanged", "previewStarted", "overviewOpened", "chapterStarted", "chapterFinished",
+      "chapterOffered", "chaptersChanged", "tipShown"],
+    settings: ["offer", "helpButton", "theme", "tips"]
   });
   registerDebug();
   connect({openOverview, openSettings});
@@ -49,24 +56,30 @@ Hooks.once("init", () => {
   for ( const event of ["createActor", "deleteActor", "updateActor"] ) Hooks.on(event, () => refreshOverview());
 
   game.modules.get(MODULE_ID).api = {
-    /** Open the tour card for this player: start or go on, or the menu. A GM sees the tour in preview. */
+    /** Open the card for this player: the step on it, or the list of chapters. A GM sees the tour in preview. */
     open: () => help(),
-    /** Start the tour for this player, from the first step with `restart`. A GM sees it in preview. */
-    start: (options = {}) => start({restart: !!options.restart, preview: game.user.isGM}),
+    /** Start a chapter for this player (the first one by default), from its first step with `restart`. A GM sees it in preview. */
+    start: (options = {}) => start({chapter: options.chapter, restart: !!options.restart, preview: game.user.isGM}),
     /** Stop the tour for this player. The steps done so far are kept. */
     stop,
     /** Is a step on the card now? */
     isRunning,
     /** The step on the card now, or null. */
     currentStep: currentStepId,
+    /** The chapter that is running or was picked last, or an empty string. */
+    currentChapter,
     /** The steps the GM offers. */
     steps: offered,
+    /** The chapters the GM offers. */
+    chapters: offeredChapterIds,
+    /** The ids of all chapters. */
+    chapterIds: () => [...CHAPTER_IDS],
     /** The ids of all steps. */
     stepIds: () => [...STEP_IDS],
     /** The progress of a user (the id or the user): {status, steps, started, finished}. */
     progress: userOrId => progressOf(typeof userOrId === "string" ? game.users.get(userOrId) : (userOrId ?? game.user)),
-    /** GM. Start the tour for a player: the player is asked at the next chance. */
-    startFor: userOrId => inviteUser(typeof userOrId === "string" ? game.users.get(userOrId) : userOrId),
+    /** GM. Offer a chapter (the first one by default) to a player: the player is asked at the next chance. */
+    startFor: (userOrId, chapter) => inviteUser(typeof userOrId === "string" ? game.users.get(userOrId) : userOrId, chapter),
     /** GM. Mark a player as experienced, so the tour is never offered. */
     markExperienced: userOrId => {
       const user = typeof userOrId === "string" ? game.users.get(userOrId) : userOrId;
@@ -128,6 +141,9 @@ function onUpdateUser(user, changes) {
   if ( delta.skipped ) countFeature(MODULE_ID, "stepSkipped", delta.skipped);
   if ( delta.started ) countFeature(MODULE_ID, "tourStarted");
   if ( delta.finished ) countFeature(MODULE_ID, "tourFinished");
+  if ( delta.chapterStarted ) countFeature(MODULE_ID, "chapterStarted");
+  if ( delta.chapterFinished ) countFeature(MODULE_ID, "chapterFinished", delta.chapterFinished);
+  if ( delta.tips ) countFeature(MODULE_ID, "tipShown", delta.tips);
   if ( delta.stopped ) countFeature(MODULE_ID, "tourStopped");
   if ( delta.experienced ) countFeature(MODULE_ID, "markedExperienced");
 }

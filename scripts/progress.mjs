@@ -1,11 +1,12 @@
 /**
- * Where the progress of a player's tour lives: two flags on the player's own user document, "progress" and "invite".
+ * Where the progress of a player's tour lives: three flags on the player's own user document, "progress", "invite" and
+ * "inviteChapter" (the chapter the GM's invitation names).
  * A player may write the flags of their own user, the GM may write all of them. Nothing is stored in the world's
  * documents, and nothing in the actors, scenes or the chat.
  */
 
 import {MODULE_ID, userFlags} from "./config.mjs";
-import {cleanProgress, storedProgress} from "./tour-logic.mjs";
+import {cleanProgress, inviteChapter, storedProgress} from "./tour-logic.mjs";
 
 /** Writes go one after the other, so a quick sequence of steps never overtakes itself. */
 let queue = Promise.resolve();
@@ -30,6 +31,15 @@ export function inviteOf(user = game.user) {
 }
 
 /**
+ * The chapter the GM's invitation of a user names (the first chapter when none is named).
+ * @param {User} [user]
+ * @returns {string}
+ */
+export function inviteChapterOf(user = game.user) {
+  return inviteChapter(userFlags(user).inviteChapter);
+}
+
+/**
  * Store the progress of a user.
  * @param {object} progress
  * @param {User} [user]
@@ -44,12 +54,13 @@ export function saveProgress(progress, user = game.user) {
 }
 
 /**
- * Start the tour for a player (GM): the player is asked at the next chance, never interrupted.
+ * Offer a chapter to a player (GM): the player is asked at the next chance, never interrupted.
  * @param {User} user
+ * @param {string} [chapter]   The chapter, the first one by default
  * @returns {Promise<void>}
  */
-export function inviteUser(user) {
-  const data = {[`flags.${MODULE_ID}.invite`]: Date.now()};
+export function inviteUser(user, chapter) {
+  const data = {[`flags.${MODULE_ID}.invite`]: Date.now(), [`flags.${MODULE_ID}.inviteChapter`]: inviteChapter(chapter)};
   queue = queue.then(() => user.update(data)).then(() => undefined).catch(err => {
     console.warn(`${MODULE_ID} | Could not invite ${user.name}`, err);
   });

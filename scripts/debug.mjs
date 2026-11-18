@@ -5,7 +5,7 @@
 import {MODULE_ID, setting, t} from "./config.mjs";
 import {registerDebugMenu, registerDebugProvider} from "./debug-file.mjs";
 import {inviteOf, progressOf} from "./progress.mjs";
-import {context, describe, offered} from "./tour.mjs";
+import {context, describe, offered, offeredChapterIds} from "./tour.mjs";
 import {trace} from "./trace.mjs";
 
 /**
@@ -25,9 +25,10 @@ export function describeState() {
     tour: describe(),
     ownInvite: inviteOf(),
     offered: offered(),
+    chapters: offeredChapterIds(),
     context: context(),
     players: {count: players.length, byStatus: statuses},
-    settings: Object.fromEntries(["offer", "helpButton", "theme", "uiLanguage"].map(key => [key, setting(key)])),
+    settings: Object.fromEntries(["offer", "helpButton", "theme", "uiLanguage", "tips"].map(key => [key, setting(key)])),
     activeGM: !!game.users?.activeGM
   };
 }

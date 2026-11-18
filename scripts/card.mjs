@@ -44,13 +44,15 @@ export function shownMode() {
 /**
  * Show a card, or replace the one shown.
  * @param {object} model
- * @param {string} model.mode      "offer", "invited", "step", "flash", "done" or "menu"
+ * @param {string} model.mode      "offer", "invited", "step", "flash", "done", "menu" or "tip"
  * @param {string} [model.icon]    Icon classes
  * @param {string} model.kicker    The small line above the title
  * @param {string} model.title
  * @param {string} [model.text]
  * @param {string} [model.todo]    What to do
  * @param {string} [model.note]    A hint, for example why the step cannot be done right now
+ * @param {{action: string, label: string, meta?: string, icon?: string, state?: string, primary?: boolean}[]} [model.list]
+ *   A list of choices below the text (the chapters)
  * @param {{total: number, done: number}} [model.progress]   Dots under the header
  * @param {{action: string, label: string, primary?: boolean, icon?: string, tooltip?: string}[]} [model.buttons]
  * @param {{action: string, label: string}} [model.link]     A quiet link at the end of the footer
@@ -128,8 +130,24 @@ function cardHtml(model) {
     <h3 class="sft-title">${esc(model.title)}</h3>
     ${model.text ? `<p class="sft-text">${esc(model.text)}</p>` : ""}
     ${model.todo ? `<p class="sft-todo"><i class="fa-solid fa-hand-point-right" inert></i> <span>${esc(model.todo)}</span></p>` : ""}
+    ${listHtml(model.list)}
     ${model.note ? `<p class="sft-note"><i class="fa-solid fa-circle-info" inert></i> <span>${esc(model.note)}</span></p>` : ""}
     <footer class="sft-foot">${buttons}<span class="sft-spacer"></span>${link}</footer>`;
+}
+
+/**
+ * The list of choices of a card.
+ * @param {object[]|undefined} list
+ * @returns {string}
+ */
+function listHtml(list) {
+  if ( !list?.length ) return "";
+  const rows = list.map(item => `<li>${item.redo ? `<button type="button" class="sft-redo" data-action="${esc(item.redo.action)}"
+    data-tooltip="${esc(item.redo.label)}" aria-label="${esc(item.redo.label)}"><i class="fa-solid fa-rotate-left" inert></i></button>` : ""}<button type="button" class="sft-choice${item.primary ? " is-primary" : ""}"
+    data-action="${esc(item.action)}" data-state="${esc(item.state ?? "")}"><i class="sft-choice-icon ${esc(item.icon ?? "")}" inert></i>
+    <span class="sft-choice-text"><strong>${esc(item.label)}</strong>${item.meta ? `<small>${esc(item.meta)}</small>` : ""}</span>
+    <i class="sft-choice-state fa-solid ${item.state === "done" ? "fa-circle-check" : "fa-chevron-right"}" inert></i></button></li>`);
+  return `<ul class="sft-list">${rows.join("")}</ul>`;
 }
 
 /** @param {MouseEvent} event */
@@ -251,16 +269,30 @@ export function hideRing() {
 }
 
 /**
- * The screen rectangle of the first element a selector finds.
- * @param {string[]} selectors
+ * The screen rectangle of an element, or null while it is not shown or lies outside the window (a collapsed sidebar
+ * slides out of sight, a ring there would point at nothing).
+ * @param {Element|null} element
  * @returns {{left: number, top: number, width: number, height: number}|null}
  */
-export function rectOfSelector(selectors) {
+export function rectOfElement(element) {
+  if ( !element?.getBoundingClientRect ) return null;
+  const rect = element.getBoundingClientRect();
+  const inside = (rect.right > 0) && (rect.bottom > 0) && (rect.left < window.innerWidth) && (rect.top < window.innerHeight);
+  return ((rect.width > 0) && (rect.height > 0) && inside) ? {left: rect.left, top: rect.top, width: rect.width, height: rect.height} : null;
+}
+
+/**
+ * The screen rectangle of the first element a selector finds that is shown.
+ * @param {string[]} selectors
+ * @param {ParentNode} [root=document]
+ * @returns {{left: number, top: number, width: number, height: number}|null}
+ */
+export function rectOfSelector(selectors, root = document) {
   for ( const selector of selectors ) {
-    const element = document.querySelector(selector);
-    if ( !element ) continue;
-    const rect = element.getBoundingClientRect();
-    if ( rect.width > 0 && rect.height > 0 ) return {left: rect.left, top: rect.top, width: rect.width, height: rect.height};
+    for ( const element of root.querySelectorAll(selector) ) {
+      const rect = rectOfElement(element);
+      if ( rect ) return rect;
+    }
   }
   return null;
 }

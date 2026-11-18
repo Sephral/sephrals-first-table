@@ -28,19 +28,40 @@
         <button type="button" class="sft-icon" data-action="reset" data-tooltip="{{../text.reset}}"
           aria-label="{{../text.reset}}"><i class="fa-solid fa-rotate-left" inert></i></button>
       </span>
+      <div class="sft-chapters">
+        {{#each chapters}}
+        <button type="button" class="sft-chip" data-action="inviteChapter" data-chapter="{{id}}" data-state="{{state}}"
+          data-tooltip="{{tooltip}}" aria-label="{{tooltip}}">
+          <i class="{{icon}}" inert></i> <span>{{title}}</span> <small>{{meta}}</small>
+        </button>
+        {{/each}}
+      </div>
     </div>
     {{/each}}
   </div>
 
   <h4 class="sft-section">{{text.steps}}</h4>
   <p class="sft-hint">{{text.stepsHint}}</p>
-  <div class="sft-steps">
-    {{#each steps}}
-    <label class="sft-step">
-      <input type="checkbox" data-step="{{id}}" {{#if offered}}checked{{/if}}>
-      <i class="{{icon}}" inert></i>
-      <span>{{title}}</span>
-    </label>
+  <div class="sft-groups">
+    {{#each groups}}
+    <details class="sft-group" data-group="{{id}}">
+      <summary>
+        <label class="sft-chapter-box" data-tooltip="{{../text.chapterOn}}">
+          <input type="checkbox" data-chapter="{{id}}" {{#if offered}}checked{{/if}}>
+        </label>
+        <i class="{{icon}}" inert></i>
+        <strong>{{title}}</strong>
+      </summary>
+      <div class="sft-steps">
+        {{#each steps}}
+        <label class="sft-step">
+          <input type="checkbox" data-step="{{id}}" {{#if offered}}checked{{/if}}>
+          <i class="{{icon}}" inert></i>
+          <span>{{title}}</span>
+        </label>
+        {{/each}}
+      </div>
+    </details>
     {{/each}}
   </div>
 

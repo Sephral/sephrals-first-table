@@ -27,15 +27,19 @@
       "helpButton": {
         "name": "Help button",
         "hint": "Show the small question mark in the controls on the left. It opens the tour, and for a GM the player overview."
+      },
+      "tips": {
+        "name": "Fight tips",
+        "hint": "Show a short tip when the first fight starts and at your first turn, with a link to the fight chapter. Only until you know that chapter, and only if your GM offers the guide on its own."
       }
     },
     "Tool": {
-      "help": "Quick tour",
+      "help": "Guide for new players",
       "overview": "First Table: players"
     },
     "card": {
-      "label": "Quick tour for new players",
-      "kicker": "Quick tour, step {n} of {total}",
+      "label": "Guide for new players",
+      "kicker": "{chapter}, step {n} of {total}",
       "pill": "Tour: {done} of {total}",
       "pillShort": "Tour",
       "unfold": "Open the tour card",
@@ -44,37 +48,48 @@
       "skip": "Skip",
       "stop": "Stop the tour",
       "close": "Close",
-      "again": "Start again"
+      "again": "Play again",
+      "seen": "Seen it",
+      "doneGeneral": "Done."
     },
     "offer": {
       "kicker": "Welcome",
       "title": "Hello {name}, new at this table?",
-      "text": "A quick tour shows you the basics in about three minutes: your sheet, a roll, moving, pinging and the chat. It waits for you at every step, and you can stop whenever you like.",
+      "text": "A quick tour shows you the basics in about three minutes: your sheet, a roll, moving, pinging and the chat. It waits for you at every step, and you can stop whenever you like. More chapters wait behind the question mark in the controls on the left.",
       "invited": "Your GM would like to show you around. It takes about three minutes, waits for you at every step, and you can stop whenever you like.",
       "start": "Show me around",
       "later": "Not now",
-      "known": "I know Foundry"
+      "known": "I know Foundry",
+      "invitedChapter": "Your GM would like to show you the chapter {chapter}. It waits for you at every step, and you can stop whenever you like."
     },
     "missing": {
       "ownToken": "None of your tokens is on this scene right now. Skip this step, or wait until your GM puts your token on the map.",
       "otherToken": "There is no other token to point at on this scene. Skip this step if you do not want to wait.",
-      "canvas": "The map is not ready. Skip this step or wait a moment."
+      "canvas": "The map is not ready. Skip this step or wait a moment.",
+      "combat": "No fight is running on this scene. The step waits for the next fight, or skip it.",
+      "myCombatant": "Your character is not in a fight right now. The step waits for the next fight, or skip it.",
+      "myTurn": "This step waits for your turn. Skip it if you do not want to wait.",
+      "sheetOpen": "Open your character sheet first. Show me opens it for you.",
+      "rollCard": "There is no roll in the chat yet. Roll something first, or skip the step."
     },
     "menu": {
-      "kicker": "Quick tour",
-      "title": "Quick tour for new players",
-      "new": "A short guided tour of the basics, about three minutes. It waits for you at every step.",
-      "stopped": "You stopped after {done} of {total} steps. Go on where you left off or start again.",
-      "finished": "You finished the tour. Do you want to do it again?",
-      "experienced": "The tour is switched off for you. You can still take it if you like.",
-      "start": "Start the tour",
-      "continue": "Go on",
-      "again": "Start again"
+      "kicker": "Guide",
+      "title": "Guide for new players",
+      "new": "New",
+      "experienced": "The guide is switched off for you. You can still take any chapter if you like.",
+      "intro": "Pick a chapter. Each one waits for you at every step, and you can stop and come back any time.",
+      "chapterDone": "Done, click to play again",
+      "chapterPart": "{done} of {total} steps",
+      "restart": "Start this chapter again"
     },
     "done": {
       "kicker": "All done",
       "title": "That is the basics. Have fun!",
-      "text": "You can start the tour again from the question mark in the controls on the left, or from the module settings."
+      "chapterTitle": "{chapter}: done",
+      "more": "More chapters are waiting. Take the next one now, or come back any time from the question mark in the controls on the left.",
+      "all": "You have been through every chapter. You can play any of them again from the question mark in the controls on the left.",
+      "next": "Next: {chapter}",
+      "pick": "Pick a chapter"
     },
     "STEPS": {
       "sheet": {
@@ -141,18 +156,297 @@
         "text": "Maps, notes and handouts your GM shares with you live in the Journal tab of the sidebar. Look there when you want to read something again.",
         "do": "Open the Journal tab in the sidebar, the book icon, and open an entry.",
         "done": "That is where the story notes live."
+      },
+      "sbChat": {
+        "title": "The chat",
+        "text": "The chat is the heart of the table. Rolls, messages, whispers and the story land here for everybody who may see them.",
+        "do": "Click the speech bubble at the top of the sidebar."
+      },
+      "sbMode": {
+        "title": "Who sees your roll?",
+        "text": "Next to the chat box you pick who sees your next messages and rolls: everybody, only the GM, the GM blind, or only you.",
+        "textV14": "Next to the chat box you pick who sees your next messages and rolls: everybody, only the GM, the GM blind, or only you. You can also speak as your character.",
+        "do": "Click one of the small buttons next to the chat box."
+      },
+      "sbCombat": {
+        "title": "The combat tab",
+        "text": "When a fight starts, the combat tracker lists everybody in the order they act. The highlighted name is whose turn it is.",
+        "do": "Open the Combat tab, the crossed swords."
+      },
+      "sbScenes": {
+        "title": "Scenes",
+        "text": "Scenes are the maps of the game. You see this tab because your GM lets you pick scenes yourself.",
+        "do": "Open the Scenes tab, the map."
+      },
+      "sbPlaceables": {
+        "title": "Placeables",
+        "text": "This tab lists the tokens and other things on the current map that you can see.",
+        "do": "Open the Placeables tab."
+      },
+      "sbActors": {
+        "title": "Actors",
+        "text": "Characters and creatures live here. You can open your own character from this list, and others as far as your GM allows.",
+        "do": "Open the Actors tab, the people icon."
+      },
+      "sbItems": {
+        "title": "Items",
+        "text": "Items of the game world, like weapons and gear. You see the ones your GM shared. The things your hero carries are on your sheet.",
+        "do": "Open the Items tab, the suitcase."
+      },
+      "sbJournal": {
+        "title": "The journal",
+        "text": "Handouts, maps and notes your GM shares with you. Look here when you want to read something again.",
+        "do": "Open the Journal tab, the book."
+      },
+      "sbTables": {
+        "title": "Roll tables",
+        "text": "Random tables for loot and surprises. The GM usually rolls them, but you may roll the ones shared with you.",
+        "do": "Open the Roll Tables tab, the list."
+      },
+      "sbCards": {
+        "title": "Card decks",
+        "text": "Decks and hands of cards, if your game uses them. It is fine when this tab is empty.",
+        "do": "Open the Cards tab."
+      },
+      "sbMacros": {
+        "title": "Macros",
+        "text": "Macros are saved little actions that run with one click, like a favorite roll. You can drag them from here to the bar at the bottom.",
+        "do": "Open the Macros tab."
+      },
+      "sbPlaylists": {
+        "title": "Playlists",
+        "text": "Music and sounds of the game. You usually cannot start them, but you decide how loud they are for you.",
+        "do": "Open the Playlists tab, the music note."
+      },
+      "sbVolume": {
+        "title": "Your own volume",
+        "text": "The sliders at the top of the Playlists tab set the volume of music, ambient sounds and interface sounds. They change only your own screen.",
+        "do": "Move one of the volume sliders."
+      },
+      "sbCompendium": {
+        "title": "Compendiums",
+        "text": "Compendiums are the libraries of the game: rules, creatures, spells. You see the ones your GM opened for players.",
+        "do": "Open the Compendium tab, the atlas."
+      },
+      "sbSettings": {
+        "title": "Settings",
+        "text": "The gears tab holds your personal settings and a few helpful windows, and it is where you leave the game.",
+        "do": "Open the Settings tab, the gears."
+      },
+      "sbConfigure": {
+        "title": "Game settings",
+        "text": "Volumes, the look of the interface, the language and many details. These settings belong to you alone and change nothing for the others, including the audio and video options.",
+        "do": "In the Settings tab click the button for the game settings, look around and close the window again."
+      },
+      "sbControls": {
+        "title": "The key overview",
+        "text": "Every key of the game is listed here, grouped by topic, and you can change them to your taste. It is also where you find a key you forgot.",
+        "do": "In the Settings tab click the button for the controls and look through the list."
+      },
+      "scTokens": {
+        "title": "Token controls",
+        "text": "The bar on the left changes with what you do on the map. The button with the person is for tokens: select, target and measure.",
+        "do": "Click the person at the top of the bar on the left."
+      },
+      "scSelect": {
+        "title": "The select tool",
+        "text": "This tool selects and moves tokens. Clicking a token grabs it. It is the tool you use most.",
+        "do": "Click the select tool, the first tool of the token controls."
+      },
+      "scTarget": {
+        "title": "The target tool",
+        "text": "With this tool a click on a token picks it as your target, just like pressing T.",
+        "do": "Click the target tool, the second tool of the token controls."
+      },
+      "scRuler": {
+        "title": "The ruler",
+        "text": "Drag across the map with the ruler and the distance appears on the map.",
+        "do": "Click the ruler, the third tool of the token controls."
+      },
+      "scShapes": {
+        "title": "Measure shapes",
+        "text": "Circles, cones, rectangles and lines show an area, for example the reach of a spell. Everybody sees what you place.",
+        "do": "Click the button for shapes, below the person button."
+      },
+      "scNotes": {
+        "title": "Map notes",
+        "text": "Notes are pins on the map that lead to a journal entry. This button shows and hides them.",
+        "do": "Click the notes button, the bookmark."
+      },
+      "scHelp": {
+        "title": "The question mark",
+        "text": "The question mark at the end of the token controls opens this guide. Come back to it whenever you want to play a chapter again.",
+        "do": "Click the question mark."
+      },
+      "shOpen": {
+        "title": "Open your sheet",
+        "text": "Your character sheet is your home base. It has tabs, and we look at the important ones now.",
+        "do": "Double click your token on the map, or press C."
+      },
+      "shTabs": {
+        "title": "The tabs of the sheet",
+        "text": "The sheet is split into tabs, one for each topic. The one that is open now shows the main facts of your hero.",
+        "do": "Click another tab of your sheet."
+      },
+      "shAbilities": {
+        "title": "Abilities and saves",
+        "text": "Strength, Dexterity and the others are your six abilities. Clicking the name of one rolls a check, or a saving throw.",
+        "do": "Click the name of an ability on your sheet and confirm the roll."
+      },
+      "shSkills": {
+        "title": "Skills",
+        "text": "Skills are what your hero is good at, like Perception or Stealth. A mark shows the skills your hero is trained in.",
+        "do": "Click the name of a skill on your sheet and confirm the roll."
+      },
+      "shInventory": {
+        "title": "The inventory",
+        "text": "Weapons, armor, tools, coins and everything else your hero carries. Equipped things count for your values.",
+        "do": "Open the Inventory tab of your sheet.",
+        "doSwade": "Open the Gear tab of your sheet.",
+        "doCrucible": "Open the tab with your equipment."
+      },
+      "shSpells": {
+        "title": "Spells and powers",
+        "text": "Spells and magical powers with their uses. Casting works like rolling: you click, and the result lands in the chat.",
+        "do": "Open the Spells tab of your sheet.",
+        "doPf2e": "Open the Spellcasting tab of your sheet.",
+        "doSwade": "Open the Powers tab of your sheet.",
+        "doCrucible": "Open the tab with your spells or your grimoire."
+      },
+      "shFeatures": {
+        "title": "Features and talents",
+        "text": "Class features, feats, talents and traits live here: everything your hero can do beyond spells and gear.",
+        "do": "Open the Features tab of your sheet.",
+        "doPf2e": "Open the Feats tab of your sheet.",
+        "doSwade": "Open the Edges tab of your sheet.",
+        "doCrucible": "Open the tab with your talents."
+      },
+      "shItem": {
+        "title": "Look at an item",
+        "text": "An item's card shows its description and details. This also works for spells and features.",
+        "do": "Right click an item on your sheet and choose View or Edit, or mark this as seen."
+      },
+      "shRest": {
+        "title": "Resting",
+        "text": "Short and long rests give back hit points and uses. You rest when the group does, and your GM tells you when.",
+        "do": "Click the button for a short rest on your sheet, then cancel the window without resting."
+      },
+      "cdRoll": {
+        "title": "Roll by typing",
+        "text": "You do not need a sheet to roll. Type /r and a dice formula, for example /r 1d20+3, and press Enter.",
+        "do": "Type /r 1d20 in the chat box and press Enter."
+      },
+      "cdInline": {
+        "title": "Dice inside a message",
+        "text": "A roll in double square brackets becomes a little dice link in your message, and anybody can click it.",
+        "do": "Type I try the door [[/r 1d20]] in the chat box and press Enter."
+      },
+      "cdOpen": {
+        "title": "Look at the dice",
+        "text": "Click a roll in the chat to open it up: every die, the formula and the bonuses.",
+        "do": "Click the total of a roll in the chat."
+      },
+      "cdPrivate": {
+        "title": "Private rolls",
+        "text": "A private roll is seen only by you and the GM, a self roll only by you. Everybody else sees nothing of it.",
+        "do": "Pick a private mode next to the chat box, then type /r 1d20 and press Enter. Switch back to public afterwards."
+      },
+      "cdEmote": {
+        "title": "Emotes",
+        "text": "Type /em and an action to tell what your character does. It shows in the chat as a line about your character.",
+        "do": "Type /em shrugs in the chat box and press Enter."
+      },
+      "fiTracker": {
+        "title": "The combat tracker",
+        "text": "It lists everybody in the fight in turn order, with the round at the top. Your character is somewhere in that list.",
+        "do": "Open the Combat tab."
+      },
+      "fiInitiative": {
+        "title": "Roll initiative",
+        "text": "Before the first turn everybody rolls initiative, which decides the order. You roll yours from your own entry.",
+        "do": "Click the die next to your name in the Combat tab. If a window asks for details, confirm the roll."
+      },
+      "fiTurn": {
+        "title": "Whose turn is it?",
+        "text": "The highlighted entry is whose turn it is. Watch the list so you know when you are next.",
+        "do": "Look for the highlighted entry in the list. Mark this as seen when you have found it."
+      },
+      "fiEnd": {
+        "title": "End your turn",
+        "text": "When you are done, you end your own turn so the next one can go. The button appears only on your turn.",
+        "do": "Click the End Turn button in the Combat tab."
+      },
+      "fiTarget": {
+        "title": "Target before you act",
+        "text": "Pick your target before an attack or a spell, so the rolls and effects know whom they are for.",
+        "do": "Point at an enemy token and press T."
+      },
+      "fiHud": {
+        "title": "The token menu",
+        "text": "A right click on your token opens its menu with quick settings: bars, conditions, elevation and more.",
+        "do": "Click your token with the right mouse button."
+      },
+      "fiConditions": {
+        "title": "Conditions",
+        "text": "Conditions like prone or poisoned show as small icons on the token. The status effects button of the token menu lists them, and a click sets or removes one.",
+        "do": "Open the token menu and click the status effects button, or mark this as seen."
+      },
+      "fiElevation": {
+        "title": "Elevation",
+        "text": "Flying or climbing? The elevation field of the token menu says how high your token is, if your GM lets you change it.",
+        "do": "Open the token menu and type a number into the elevation field, or mark this as seen."
+      },
+      "exHotbar": {
+        "title": "The macro bar",
+        "text": "The bar at the bottom has slots, and the number keys run them. You fill them with macros, items and favorite rolls.",
+        "do": "Click the bar at the bottom, or mark this as seen."
+      },
+      "exMacro": {
+        "title": "Make a shortcut",
+        "text": "Drag an item or a skill from your sheet onto a slot of the bar. That makes a macro, and from then on one click uses it.",
+        "do": "Open your sheet and drag an item or a skill onto an empty slot of the bar."
+      },
+      "exPlayers": {
+        "title": "The players list",
+        "text": "The list in the corner shows who is at the table. A dimmed name is offline. Your color is the color of your pings and rulers.",
+        "do": "Click the list, or mark this as seen."
+      },
+      "exPause": {
+        "title": "Pause",
+        "text": "When the GM pauses the game, a big banner says so and nobody moves. Take a breath, the game goes on soon.",
+        "do": "There is nothing to click. Mark this as seen."
+      },
+      "exAlt": {
+        "title": "Show everything",
+        "text": "Hold the Alt key and Foundry highlights everything on the map you can interact with: tokens, doors and notes. Handy when you cannot find something.",
+        "do": "Hold Alt on the map for a moment, then mark this as seen."
+      },
+      "exPing": {
+        "title": "Pings and the GM",
+        "text": "You know the ping: press and hold on the map and everybody sees a ring. Only the GM can pull everybody's view to a spot, by holding Shift while pinging. So when your picture suddenly jumps, that was the GM.",
+        "do": "Nothing to click, just remember it. Mark this as seen."
+      },
+      "scKeys": {
+        "title": "Keys for the tools",
+        "text": "Most tools have a key, like T for targets. The key overview lists all of them, and you can change them to your taste.",
+        "do": "Open the Settings tab, click the button for the controls and look through the list."
+      },
+      "cdWhisper": {
+        "title": "Whisper to someone",
+        "text": "Type /w, a name and your message, and only that person reads it. You can whisper to other players too, not only to the GM.",
+        "do": "Type /w and a name, for example your own, then a message, and press Enter."
       }
     },
     "TourMenu": {
-      "title": "Quick tour for new players",
-      "open": "Open the tour",
-      "hint": "Shows the short guided tour of the basics. A GM sees it as a preview, nothing is saved."
+      "title": "Guide for new players",
+      "open": "Open the guide",
+      "hint": "Shows the chapters of the guide: first steps, sidebar, scene controls, character sheet, chat and dice, fights and extras. A GM sees a preview, nothing is saved."
     },
     "Overview": {
       "title": "First Table",
       "open": "Open the player overview",
-      "menuHint": "See who finished the tour, start it for a player, mark players as experienced and choose the steps.",
-      "hint": "New players get the quick tour by themselves at their first login. Here you see how far everybody is.",
+      "menuHint": "See how far every player is in every chapter, offer a chapter to a player, mark players as experienced and choose the chapters and steps.",
+      "hint": "New players get the first chapter by themselves at their first login. Here you see how far everybody is in each chapter and can offer a chapter to a player.",
       "modeLabel": "Offered on its own:",
       "mode": {
         "auto": "to new players at their first login",
@@ -169,22 +463,28 @@
         "experienced": "Experienced",
         "later": "Asked later"
       },
-      "counts": "{done} of {total}",
-      "start": "Start the tour for this player",
-      "startAgain": "Start the tour for this player again",
+      "counts": "{done} of {total} chapters",
+      "start": "Offer the first chapter to this player",
+      "startAgain": "Offer the first chapter to this player again",
       "experienced": "Mark as experienced",
       "notExperienced": "Take the experienced mark away",
-      "reset": "Forget the tour for this player",
+      "reset": "Forget the progress of this player",
       "invited": "{name} will be asked to take the tour.",
       "online": "Online",
       "offline": "Offline",
-      "steps": "Steps offered",
-      "stepsHint": "Untick a step to leave it out for everybody.",
-      "preview": "Try the tour myself",
+      "steps": "Chapters and steps offered",
+      "stepsHint": "Untick a chapter to leave it out for everybody. Open a chapter to untick single steps.",
+      "preview": "Try the guide myself",
       "allExperienced": "Mark everybody as experienced",
       "allExperiencedAsk": "Everybody who has not met the tour yet is marked as experienced and will not be offered it. Players who already started keep their progress.",
       "allExperiencedYes": "Mark them",
-      "cancel": "Cancel"
+      "cancel": "Cancel",
+      "chapterDone": "done",
+      "chapterCount": "{done} of {total}",
+      "offerChapter": "Offer {chapter} to this player",
+      "invitedChapter": "{name} will be asked to take the chapter {chapter}.",
+      "chapterOn": "Offer this chapter",
+      "chapterNone": "nothing to do"
     },
     "SELFTEST": {
       "Title": "Self test",
@@ -205,8 +505,10 @@
       "Ping": "The pings of the map are built differently than expected. The step Ping the map is not recognized.",
       "Ruler": "Foundry's ruler is built differently than expected. The step Measure a distance is not recognized.",
       "Canvas": "The map cannot give screen positions. The ring around tokens is missing.",
-      "Logic": "Recognizing the steps gives wrong results.",
-      "Texts": "Missing texts: {keys}"
+      "Logic": "Recognizing the steps and chapters gives wrong results.",
+      "Texts": "Missing texts: {keys}",
+      "Ui": "The sidebar or the scene controls are built differently than expected. The chapters The sidebar and The scene controls cannot point at them.",
+      "Chat2": "The chat controls, the macro bar or the players list are missing. Some steps cannot point at them."
     },
     "DEBUG": {
       "Title": "Debug file",
@@ -214,6 +516,45 @@
       "Hint": "One file about all of Sephral's modules in this world, for bug reports. It contains chat text and whispers.",
       "Entry": "First Table",
       "Saved": "Debug file saved: {file}. It contains chat text and whispers, check it before you share it."
+    },
+    "tip": {
+      "kicker": "Tip",
+      "start": "Show me",
+      "later": "Not now",
+      "off": "No more tips"
+    },
+    "TIPS": {
+      "combatStart": {
+        "title": "A fight begins",
+        "text": "Want a short guide for fights? It shows how to roll initiative, see whose turn it is and end your own turn."
+      },
+      "myTurn": {
+        "title": "It is your turn",
+        "text": "Move, act, and then end your turn in the Combat tab. The fight guide shows you where everything is."
+      }
+    },
+    "CHAPTERS": {
+      "basics": {
+        "title": "Your first steps"
+      },
+      "sidebar": {
+        "title": "The sidebar"
+      },
+      "controls": {
+        "title": "The scene controls"
+      },
+      "charsheet": {
+        "title": "Your character sheet"
+      },
+      "chatdice": {
+        "title": "Chat and dice"
+      },
+      "fight": {
+        "title": "In a fight"
+      },
+      "extras": {
+        "title": "Useful extras"
+      }
     }
   }
 }
