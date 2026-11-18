@@ -26,7 +26,7 @@ Hooks.once("init", () => {
       redraw();
       refreshOverview();
     },
-    helpButton: () => ui.controls?.render({reset: true}),
+    helpButton: () => ui.controls?.render({reset: true})?.catch?.(() => {}),
     steps: () => {
       syncSteps();
       redraw();
