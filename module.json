@@ -2,7 +2,7 @@
   "id": "sephrals-first-table",
   "title": "Sephral’s First Table",
   "description": "A short, friendly first session for new players that starts by itself at their first login: character sheet, a roll, moving, targeting, pinging, measuring, chat and journal. Every step waits until the player has really done it, and the GM sees who finished.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "compatibility": {
     "minimum": 13,
     "verified": "14.370"
