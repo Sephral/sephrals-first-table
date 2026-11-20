@@ -49,7 +49,7 @@ export class OverviewApp extends HandlebarsApplicationMixin(ApplicationV2) {
   };
 
   /** @override */
-  static PARTS = {main: {template: `${TEMPLATES}/overview.hbs`, scrollable: [".sft-rows"]}};
+  static PARTS = {main: {template: `${TEMPLATES}/overview.hbs`, scrollable: [".sft-scroll"]}};
 
   /** @override */
   get title() {

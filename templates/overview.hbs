@@ -2,6 +2,7 @@
   <p class="sft-hint">{{text.hint}}</p>
   <p class="sft-mode"><i class="fa-solid fa-circle-info" inert></i> {{text.mode}} <strong>{{modeText}}</strong></p>
 
+  <div class="sft-scroll">
   <h4 class="sft-section">{{text.players}}</h4>
   {{#if noPlayers}}
   <p class="sft-empty"><i class="fa-solid fa-user-plus" inert></i> {{text.noPlayers}}</p>
@@ -63,6 +64,7 @@
       </div>
     </details>
     {{/each}}
+  </div>
   </div>
 
   <footer class="sft-foot">

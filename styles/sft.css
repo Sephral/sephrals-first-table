@@ -291,6 +291,32 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.sft-app .window-content > [data-application-part] {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* The overview scrolls between the hint and the buttons, the buttons stay at the bottom */
+.sft-overview .sft-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 4px;
+}
+
+.sft-overview .sft-hint,
+.sft-overview .sft-mode,
+.sft-overview .sft-foot {
+  flex: 0 0 auto;
 }
 
 .sft-app .sft-hint,
@@ -319,8 +345,6 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  max-height: 340px;
-  overflow-y: auto;
 }
 
 .sft-row {
