@@ -13,24 +13,24 @@
       },
       "theme": {
         "name": "Aussehen",
-        "hint": "Signature zeigt Karte und Fenster auf warmem Papier, Foundry hält sie dunkel wie den Rest von Foundry.",
+        "hint": "Signature zeigt Karte und Fenster auf warmem Papier. Foundry hält sie dunkel, passend zum Rest von Foundry.",
         "signature": "Signature (Papier)",
         "foundry": "Foundry (dunkel)"
       },
       "offer": {
         "name": "Tour anbieten",
-        "hint": "Wer die kurze Tour angeboten bekommt, ohne danach zu fragen. In einer Welt, die schon in Benutzung ist, startet das Modul mit \"Nur wenn ich sie für einen Spieler starte\".",
+        "hint": "Wer die kurze Tour von selbst angeboten bekommt. Eine Welt, die schon läuft, startet mit \"Nur wenn ich sie für einen Spieler starte\".",
         "auto": "Neuen Spielern bei der ersten Anmeldung",
         "gm": "Nur wenn ich sie für einen Spieler starte",
         "off": "Nie von selbst"
       },
       "helpButton": {
         "name": "Hilfeknopf",
-        "hint": "Zeigt das kleine Fragezeichen in der Leiste links. Es öffnet die Tour, für SL die Spielerübersicht."
+        "hint": "Zeigt das kleine Fragezeichen in der Leiste links. Es öffnet die Tour, beim SL die Spielerübersicht."
       },
       "tips": {
         "name": "Kampftipps",
-        "hint": "Zeigt beim ersten Kampf und bei deinem ersten Zug einen kurzen Tipp mit einem Link zum Kampfkapitel. Nur bis du das Kapitel kennst, und nur wenn dein SL die Einführung von sich aus anbietet."
+        "hint": "Zeigt beim ersten Kampf und bei deinem ersten Zug einen kurzen Tipp mit einem Link zum Kampfkapitel. Der Tipp erscheint nur, bis du das Kapitel kennst, und nur wenn dein SL die Einführung von sich aus anbietet."
       }
     },
     "Tool": {
@@ -55,12 +55,12 @@
     "offer": {
       "kicker": "Willkommen",
       "title": "Hallo {name}, neu am Tisch?",
-      "text": "Eine kurze Tour zeigt dir in etwa drei Minuten das Wichtigste: deinen Bogen, einen Wurf, Bewegen, Anpingen und den Chat. Sie wartet bei jedem Schritt auf dich, und du kannst jederzeit aufhören. Weitere Kapitel warten hinter dem Fragezeichen in der Leiste links.",
-      "invited": "Dein SL möchte dir kurz alles zeigen. Das dauert etwa drei Minuten, wartet bei jedem Schritt auf dich, und du kannst jederzeit aufhören.",
+      "text": "Eine kurze Tour zeigt dir in etwa drei Minuten das Wichtigste: deinen Bogen, einen Wurf, wie du dich bewegst und etwas anpingst, und den Chat. Sie wartet bei jedem Schritt auf dich, und du kannst jederzeit aufhören. Weitere Kapitel warten hinter dem Fragezeichen in der Leiste links.",
+      "invited": "Dein SL möchte dir den Einstieg zeigen. Das dauert etwa drei Minuten. Die Tour wartet bei jedem Schritt auf dich, und du kannst jederzeit aufhören.",
       "start": "Zeig es mir",
       "later": "Jetzt nicht",
       "known": "Ich kenne Foundry",
-      "invitedChapter": "Dein SL möchte dir das Kapitel {chapter} zeigen. Es wartet bei jedem Schritt auf dich, und du kannst jederzeit aufhören."
+      "invitedChapter": "Dein SL möchte dir das Kapitel \"{chapter}\" zeigen. Es wartet bei jedem Schritt auf dich, und du kannst jederzeit aufhören."
     },
     "missing": {
       "ownToken": "Keines deiner Tokens ist gerade auf dieser Szene. Überspringe den Schritt oder warte, bis dein SL dein Token auf die Karte setzt.",
@@ -78,7 +78,7 @@
       "new": "Neu",
       "experienced": "Die Einführung ist für dich ausgeschaltet. Du kannst trotzdem jedes Kapitel machen, wenn du magst.",
       "intro": "Such dir ein Kapitel aus. Jedes wartet bei jedem Schritt auf dich, und du kannst jederzeit aufhören und später weitermachen.",
-      "chapterDone": "Geschafft, klicke für noch einmal",
+      "chapterDone": "Geschafft, klicke zum Wiederholen",
       "chapterPart": "{done} von {total} Schritten",
       "restart": "Dieses Kapitel noch einmal von vorn"
     },
@@ -95,7 +95,7 @@
       "sheet": {
         "title": "Das ist dein Charakter",
         "text": "Auf deinem Charakterbogen steht alles über deine Figur: Werte, Gegenstände, Zauber und Notizen. Du wirst ihn oft brauchen.",
-        "do": "Doppelklicke dein Token auf der Karte oder drücke C, dann öffnet sich dein Bogen.",
+        "do": "Doppelklicke auf dein Token auf der Karte oder drücke C, dann öffnet sich dein Bogen.",
         "done": "Das ist dein Bogen."
       },
       "roll": {
@@ -116,21 +116,21 @@
         "done": "Gut, dein Token ist gelaufen."
       },
       "moveDrag": {
-        "title": "Per Ziehen bewegen",
-        "text": "Du kannst dein Token auch greifen und dorthin ziehen, wo du hinwillst. Das Lineal zeigt dir, wie weit du gehst.",
-        "do": "Klicke dein Token an, halte die Taste gedrückt, ziehe es auf ein anderes Feld und lass los.",
+        "title": "Durch Ziehen bewegen",
+        "text": "Du kannst dein Token auch greifen und dorthin ziehen, wohin du willst. Das Lineal zeigt dir, wie weit du gehst.",
+        "do": "Klicke dein Token an, halte die Maustaste gedrückt, ziehe es auf ein anderes Feld und lass los.",
         "done": "Gezogen. Beide Wege funktionieren."
       },
       "target": {
         "title": "Ein Ziel wählen",
         "text": "Vor einem Angriff oder Zauber wählst du dein Ziel. Eine Markierung zeigt dir, auf wen du zeigst.",
-        "do": "Zeige auf ein anderes Token und drücke T, oder klicke es mit dem Zielwerkzeug in der Leiste links an.",
+        "do": "Fahre mit der Maus über ein anderes Token und drücke T, oder klicke es mit dem Zielwerkzeug in der Leiste links an.",
         "done": "Ziel gewählt."
       },
       "ping": {
         "title": "Die Karte anpingen",
         "text": "Ein Ping zeigt allen, wovon du gerade sprichst. So sagst du am schnellsten: Hier, schaut mal.",
-        "do": "Halte die Maustaste auf einer Stelle der Karte gedrückt, bis ein Ring erscheint.",
+        "do": "Halte die linke Maustaste auf einer Stelle der Karte gedrückt, bis ein Ring erscheint.",
         "done": "Angepingt. Alle haben es gesehen."
       },
       "measure": {
@@ -142,30 +142,30 @@
       "chat": {
         "title": "Etwas in den Chat schreiben",
         "text": "Im Chat rechts landen Würfe, Nachrichten und die Geschichte. Du kannst an alle schreiben oder an einzelne.",
-        "do": "Klicke in das Chatfeld und schreibe eine Zeile. Zum stillen Ausprobieren flüstere dir selbst: Tippe /w, deinen Namen und den Text.",
+        "do": "Klicke in das Chatfeld und schreibe eine Zeile. Zum stillen Ausprobieren flüstere dir selbst etwas zu: Tippe /w, deinen Namen und den Text.",
         "done": "Nachricht gesendet."
       },
       "whisper": {
         "title": "Dem SL flüstern",
         "text": "Geflüstertes ist privat. Nutze es, um deinen SL etwas zu fragen oder zu sagen, was deine Figur heimlich tut.",
         "do": "Tippe /w gm und deine Nachricht, zum Beispiel /w gm Hallo!",
-        "done": "Dein SL hat das Flüstern bekommen."
+        "done": "Dein SL hat deine Nachricht bekommen."
       },
       "journal": {
         "title": "Journale und Handouts",
         "text": "Karten, Notizen und Handouts, die dein SL mit dir teilt, liegen im Reiter Journal in der Seitenleiste. Schau dort nach, wenn du etwas nachlesen willst.",
-        "do": "Öffne in der Seitenleiste den Reiter Journal, das Buchsymbol, und öffne einen Eintrag.",
+        "do": "Öffne in der Seitenleiste den Reiter Journal (das Buchsymbol) und dann einen Eintrag.",
         "done": "Dort liegen die Notizen zur Geschichte."
       },
       "sbChat": {
         "title": "Der Chat",
-        "text": "Der Chat ist das Herz am Tisch. Würfe, Nachrichten, Geflüstertes und die Geschichte landen hier bei allen, die sie sehen dürfen.",
+        "text": "Würfe, Nachrichten, Geflüstertes und die Geschichte landen im Chat, jeweils bei denen, die sie sehen dürfen.",
         "do": "Klicke oben in der Seitenleiste auf die Sprechblase."
       },
       "sbMode": {
         "title": "Wer sieht deinen Wurf?",
-        "text": "Neben dem Chatfeld wählst du, wer deine nächsten Nachrichten und Würfe sieht: alle, nur der SL, der SL blind, oder nur du.",
-        "textV14": "Neben dem Chatfeld wählst du, wer deine nächsten Nachrichten und Würfe sieht: alle, nur der SL, der SL blind, oder nur du. Du kannst auch als dein Charakter sprechen.",
+        "text": "Neben dem Chatfeld wählst du, wer deine nächsten Würfe sieht: alle, nur der SL, nur der SL und du siehst nichts davon (blind), oder nur du.",
+        "textV14": "Neben dem Chatfeld wählst du, wer deine nächsten Nachrichten und Würfe sieht: alle, nur der SL, nur der SL und du siehst nichts davon (blind), oder nur du. Du kannst auch als dein Charakter sprechen.",
         "do": "Klicke einen der kleinen Knöpfe neben dem Chatfeld an."
       },
       "sbCombat": {
@@ -175,13 +175,13 @@
       },
       "sbScenes": {
         "title": "Szenen",
-        "text": "Szenen sind die Karten des Spiels. Du siehst diesen Reiter, weil dein SL dich Szenen selbst wählen lässt.",
+        "text": "Szenen sind die Karten des Spiels. Du siehst diesen Reiter, weil dein SL dir erlaubt, Szenen selbst zu wählen.",
         "do": "Öffne den Reiter Szenen, die Karte."
       },
       "sbPlaceables": {
-        "title": "Platzierbares",
+        "title": "Platzierbare Objekte",
         "text": "Dieser Reiter listet die Tokens und andere Dinge auf der aktuellen Karte, die du sehen kannst.",
-        "do": "Öffne den Reiter Platzierbares."
+        "do": "Öffne den Reiter Platzierbare Objekte."
       },
       "sbActors": {
         "title": "Akteure",
@@ -201,16 +201,16 @@
       "sbTables": {
         "title": "Zufallstabellen",
         "text": "Zufallstabellen für Beute und Überraschungen. Meist würfelt der SL darauf, aber die mit dir geteilten darfst du selbst würfeln.",
-        "do": "Öffne den Reiter Tabellen, die Liste."
+        "do": "Öffne den Reiter Zufallstabellen, die Liste."
       },
       "sbCards": {
         "title": "Kartenstapel",
-        "text": "Kartenstapel und Handkarten, falls dein Spiel sie nutzt. Es ist in Ordnung, wenn dieser Reiter leer ist.",
-        "do": "Öffne den Reiter Karten."
+        "text": "Stapel und Handkarten, falls dein Spiel sie nutzt. Es ist in Ordnung, wenn dieser Reiter leer ist.",
+        "do": "Öffne den Reiter Kartenstapel."
       },
       "sbMacros": {
         "title": "Makros",
-        "text": "Makros sind gespeicherte kleine Handlungen, die mit einem Klick laufen, zum Beispiel ein Lieblingswurf. Du kannst sie von hier auf die Leiste am unteren Rand ziehen.",
+        "text": "Makros sind kleine gespeicherte Abläufe, die mit einem Klick starten, zum Beispiel ein Lieblingswurf. Du kannst sie von hier auf die Leiste am unteren Rand ziehen.",
         "do": "Öffne den Reiter Makros."
       },
       "sbPlaylists": {
@@ -220,7 +220,7 @@
       },
       "sbVolume": {
         "title": "Deine eigene Lautstärke",
-        "text": "Die Regler oben im Reiter Playlists stellen die Lautstärke von Musik, Umgebungsgeräuschen und Oberflächentönen ein. Sie ändern nur deinen eigenen Bildschirm.",
+        "text": "Die Regler oben im Reiter Playlists stellen die Lautstärke von Musik, Umgebungsgeräuschen und Bedienungstönen ein. Sie ändern nur deinen eigenen Bildschirm.",
         "do": "Bewege einen der Lautstärkeregler."
       },
       "sbCompendium": {
@@ -235,32 +235,32 @@
       },
       "sbConfigure": {
         "title": "Spieleinstellungen",
-        "text": "Lautstärken, das Aussehen der Oberfläche, die Sprache und viele Einzelheiten, auch die Audio und Videooptionen. Diese Einstellungen gehören dir allein und ändern nichts für die anderen.",
+        "text": "Lautstärken, das Aussehen der Oberfläche, die Sprache und viele Einzelheiten. Diese Einstellungen gehören dir allein und ändern nichts für die anderen.",
         "do": "Klicke im Reiter Einstellungen auf den Knopf für die Spieleinstellungen, sieh dich um und schließe das Fenster wieder."
       },
       "sbControls": {
         "title": "Die Tastenübersicht",
-        "text": "Alle Tasten des Spiels stehen hier nach Themen geordnet, und du kannst sie nach deinem Geschmack ändern. Hier findest du auch eine Taste, die du vergessen hast.",
+        "text": "Alle Tasten des Spiels stehen hier nach Themen geordnet. Du kannst sie ändern, und hier findest du auch eine Taste wieder, die du vergessen hast.",
         "do": "Klicke im Reiter Einstellungen auf den Knopf für die Steuerung und sieh dir die Liste an."
       },
       "scTokens": {
         "title": "Tokenwerkzeuge",
-        "text": "Die Leiste links ändert sich mit dem, was du auf der Karte tust. Der Knopf mit der Person ist für Tokens: auswählen, anvisieren und messen.",
+        "text": "Die Leiste links enthält die Werkzeuge für die Karte. Der Knopf mit der Person ist für Tokens: auswählen, anvisieren und messen.",
         "do": "Klicke oben in der Leiste links auf die Person."
       },
       "scSelect": {
         "title": "Das Auswahlwerkzeug",
-        "text": "Dieses Werkzeug wählt Tokens aus und bewegt sie. Mit einem Klick greifst du ein Token. Es ist das Werkzeug, das du am meisten brauchst.",
+        "text": "Dieses Werkzeug wählt Tokens aus und bewegt sie: Klicke eines an, um es auszuwählen, und ziehe es, um es zu bewegen. Du brauchst es am meisten.",
         "do": "Klicke auf das Auswahlwerkzeug, das erste der Tokenwerkzeuge."
       },
       "scTarget": {
         "title": "Das Zielwerkzeug",
-        "text": "Mit diesem Werkzeug wählt ein Klick auf ein Token es als Ziel, genau wie die Taste T.",
+        "text": "Mit diesem Werkzeug machst du ein Token per Klick zu deinem Ziel, genau wie mit der Taste T.",
         "do": "Klicke auf das Zielwerkzeug, das zweite der Tokenwerkzeuge."
       },
       "scRuler": {
         "title": "Das Lineal",
-        "text": "Ziehe mit dem Lineal über die Karte, und die Entfernung erscheint auf der Karte.",
+        "text": "Ziehe mit dem Lineal über die Karte, und du siehst die Entfernung.",
         "do": "Klicke auf das Lineal, das dritte der Tokenwerkzeuge."
       },
       "scShapes": {
@@ -270,7 +270,7 @@
       },
       "scNotes": {
         "title": "Kartennotizen",
-        "text": "Notizen sind Stecknadeln auf der Karte, die zu einem Journaleintrag führen. Dieser Knopf zeigt und versteckt sie.",
+        "text": "Notizen sind Stecknadeln auf der Karte, die zu einem Journaleintrag führen. Der Knopf mit dem Lesezeichen öffnet ihre Werkzeuge, und das Werkzeug mit der Stecknadel darin zeigt oder versteckt sie.",
         "do": "Klicke auf den Notizenknopf, das Lesezeichen."
       },
       "scHelp": {
@@ -285,7 +285,7 @@
       },
       "shTabs": {
         "title": "Die Reiter des Bogens",
-        "text": "Der Bogen ist in Reiter geteilt, einer pro Thema. Der, der gerade offen ist, zeigt die wichtigsten Werte deines Helden.",
+        "text": "Der Bogen ist in Reiter geteilt, einer pro Thema. Der geöffnete Reiter zeigt die wichtigsten Werte deines Helden.",
         "do": "Klicke auf einen anderen Reiter deines Bogens."
       },
       "shAbilities": {
@@ -300,14 +300,14 @@
       },
       "shInventory": {
         "title": "Das Inventar",
-        "text": "Waffen, Rüstung, Werkzeug, Münzen und alles andere, was dein Held trägt. Angelegte Dinge zählen für deine Werte.",
+        "text": "Waffen, Rüstung, Werkzeug, Münzen und alles andere, was dein Held trägt. Angelegte Gegenstände fließen in deine Werte ein.",
         "do": "Öffne den Reiter Inventar deines Bogens.",
         "doSwade": "Öffne den Reiter Ausrüstung deines Bogens.",
         "doCrucible": "Öffne den Reiter mit deiner Ausrüstung."
       },
       "shSpells": {
         "title": "Zauber und Kräfte",
-        "text": "Zauber und magische Kräfte mit ihren Einsätzen. Zaubern funktioniert wie Würfeln: Du klickst, und das Ergebnis erscheint im Chat.",
+        "text": "Zauber und magische Kräfte und wie oft du sie einsetzen kannst. Zaubern funktioniert wie Würfeln: Du klickst, und das Ergebnis erscheint im Chat.",
         "do": "Öffne den Reiter Zauber deines Bogens.",
         "doPf2e": "Öffne den Reiter Zauberwirken deines Bogens.",
         "doSwade": "Öffne den Reiter Kräfte deines Bogens.",
@@ -315,7 +315,7 @@
       },
       "shFeatures": {
         "title": "Merkmale und Talente",
-        "text": "Klassenmerkmale, Talente und Eigenschaften wohnen hier: alles, was dein Held neben Zaubern und Ausrüstung kann.",
+        "text": "Klassenmerkmale, Talente und Eigenschaften stehen hier: alles, was dein Held neben Zaubern und Ausrüstung kann.",
         "do": "Öffne den Reiter Merkmale deines Bogens.",
         "doPf2e": "Öffne den Reiter Talente deines Bogens.",
         "doSwade": "Öffne den Reiter Talente deines Bogens.",
@@ -328,11 +328,11 @@
       },
       "shRest": {
         "title": "Rasten",
-        "text": "Kurze und lange Rasten geben Trefferpunkte und Einsätze zurück. Du rastest, wenn die Gruppe rastet, und dein SL sagt dir wann.",
+        "text": "Kurze und lange Rasten geben Trefferpunkte und verbrauchte Fähigkeiten zurück. Du rastest, wenn die Gruppe rastet, und dein SL sagt dir wann.",
         "do": "Klicke auf deinem Bogen auf den Knopf für eine kurze Rast und brich das Fenster dann ab, ohne zu rasten."
       },
       "cdRoll": {
-        "title": "Per Tippen würfeln",
+        "title": "Würfeln durch Tippen",
         "text": "Zum Würfeln brauchst du keinen Bogen. Tippe /r und eine Würfelformel, zum Beispiel /r 1d20+3, und drücke Enter.",
         "do": "Tippe /r 1d20 ins Chatfeld und drücke Enter."
       },
@@ -379,7 +379,7 @@
       "fiTarget": {
         "title": "Ziel wählen, bevor du handelst",
         "text": "Wähle dein Ziel vor einem Angriff oder Zauber, damit Würfe und Wirkungen wissen, für wen sie sind.",
-        "do": "Zeige auf ein gegnerisches Token und drücke T."
+        "do": "Fahre mit der Maus über ein gegnerisches Token und drücke T."
       },
       "fiHud": {
         "title": "Das Tokenmenü",
@@ -408,7 +408,7 @@
       },
       "exPlayers": {
         "title": "Die Spielerliste",
-        "text": "Die Liste in der Ecke zeigt, wer am Tisch sitzt. Ein blasser Name ist offline. Deine Farbe ist die Farbe deiner Pings und deines Lineals.",
+        "text": "Die Liste in der Ecke zeigt, wer gerade am Tisch sitzt. Ein Klick zeigt auch die, die offline sind, blass dargestellt. Deine Farbe ist die Farbe deiner Pings und deines Lineals.",
         "do": "Klicke auf die Liste, oder markiere den Schritt als gesehen."
       },
       "exPause": {
@@ -428,7 +428,7 @@
       },
       "scKeys": {
         "title": "Tasten für die Werkzeuge",
-        "text": "Die meisten Werkzeuge haben eine Taste, wie T für Ziele. Die Tastenübersicht listet alle auf, und du kannst sie nach deinem Geschmack ändern.",
+        "text": "Die meisten Werkzeuge haben eine Taste, wie T für Ziele. Die Tastenübersicht listet alle auf, und du kannst sie ändern.",
         "do": "Öffne den Reiter Einstellungen, klicke auf den Knopf für die Steuerung und sieh dir die Liste an."
       },
       "cdWhisper": {
@@ -446,8 +446,8 @@
       "title": "First Table",
       "open": "Spielerübersicht öffnen",
       "menuHint": "Sieh, wie weit jeder Spieler in jedem Kapitel ist, biete einem Spieler ein Kapitel an, markiere Spieler als erfahren und wähle die Kapitel und Schritte.",
-      "hint": "Neue Spieler bekommen das erste Kapitel von selbst bei ihrem ersten Login. Hier siehst du, wie weit alle in jedem Kapitel sind, und kannst einem Spieler ein Kapitel anbieten.",
-      "modeLabel": "Angeboten wird sie:",
+      "hint": "Neue Spieler bekommen das erste Kapitel von selbst bei ihrer ersten Anmeldung. Hier siehst du, wie weit alle in jedem Kapitel sind, und kannst einem Spieler ein Kapitel anbieten.",
+      "modeLabel": "Von selbst angeboten:",
       "mode": {
         "auto": "neuen Spielern bei der ersten Anmeldung",
         "gm": "nur, wenn du sie für einen Spieler startest",
@@ -467,7 +467,7 @@
       "start": "Diesem Spieler das erste Kapitel anbieten",
       "startAgain": "Diesem Spieler das erste Kapitel noch einmal anbieten",
       "experienced": "Als erfahren markieren",
-      "notExperienced": "Markierung erfahren entfernen",
+      "notExperienced": "Markierung \"erfahren\" entfernen",
       "reset": "Den Fortschritt dieses Spielers vergessen",
       "invited": "{name} wird gefragt, ob die Tour starten soll.",
       "online": "Online",
@@ -482,7 +482,7 @@
       "chapterDone": "geschafft",
       "chapterCount": "{done} von {total}",
       "offerChapter": "{chapter} diesem Spieler anbieten",
-      "invitedChapter": "{name} wird gefragt, ob das Kapitel {chapter} gemacht werden soll.",
+      "invitedChapter": "{name} wird gefragt, ob das Kapitel \"{chapter}\" gemacht werden soll.",
       "chapterOn": "Dieses Kapitel anbieten",
       "chapterNone": "nichts zu tun"
     },
@@ -513,9 +513,9 @@
     "DEBUG": {
       "Title": "Debug-Datei",
       "Save": "Debug-Datei speichern",
-      "Hint": "Eine Datei über alle Module von Sephral in dieser Welt, für Fehlerberichte. Sie enthält Chattexte und Flüstern.",
+      "Hint": "Eine Datei über alle Module von Sephral in dieser Welt, für Fehlerberichte. Sie enthält Chattexte und Flüsternachrichten.",
       "Entry": "First Table",
-      "Saved": "Debug-Datei gespeichert: {file}. Sie enthält Chattexte und Flüstern, prüfe sie, bevor du sie weitergibst."
+      "Saved": "Debug-Datei gespeichert: {file}. Sie enthält Chattexte und Flüsternachrichten, prüfe sie, bevor du sie weitergibst."
     },
     "tip": {
       "kicker": "Tipp",
@@ -526,7 +526,7 @@
     "TIPS": {
       "combatStart": {
         "title": "Ein Kampf beginnt",
-        "text": "Möchtest du eine kurze Einführung in Kämpfe? Sie zeigt, wie du Initiative würfelst, siehst, wer dran ist, und deinen Zug beendest."
+        "text": "Möchtest du eine kurze Einführung in Kämpfe? Sie zeigt dir, wie du Initiative würfelst, erkennst, wer dran ist, und deinen Zug beendest."
       },
       "myTurn": {
         "title": "Du bist dran",

@@ -51,7 +51,7 @@ The player opens each tab, the ring sits on the tab button. A click on the tab t
 | --- | --- | --- |
 | The chat | Clicks the chat tab | A click on the tab |
 | Who sees your roll? | Clicks one of the buttons next to the chat box (public, private to the GM, blind, self, in Foundry 14 also in character) | A click on a button of the roll mode selector. The ring marks the selector (the chat tab while it is closed) |
-| The combat tab, Scenes, Placeables (Foundry 14), Actors, Items, Journal, Roll tables, Card decks, Macros, Playlists, Compendiums, Settings | Opens the tab | A click on the tab button, or the sidebar changes its tab |
+| The combat tab, Scenes, Placeables (Foundry 14), Actors, Items, Journal, Rollable Tables, Card stacks, Macros, Playlists, Compendiums, Settings | Opens the tab | A click on the tab button, or the sidebar changes its tab |
 | Your own volume | Moves a volume slider of the Playlists tab | An input on a range slider in the Playlists tab |
 | Game settings | Opens the game settings window (volumes, language, audio and video options) | The settings window opens |
 | The key overview | Opens the controls window (Configure Controls in Foundry 13, Controls Configuration in Foundry 14) | The controls window opens |
