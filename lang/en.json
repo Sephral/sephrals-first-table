@@ -555,6 +555,15 @@
       "extras": {
         "title": "Useful extras"
       }
+    },
+    "Sample": {
+      "groupCard": "Guide card",
+      "offers": "Offers",
+      "menu": "Chapter list",
+      "done": "Done, folded and tips",
+      "overviewPlayers": "Players at different points",
+      "overviewMore": "More states, offered only by the GM",
+      "overviewEmpty": "No players, never offered"
     }
   }
 }

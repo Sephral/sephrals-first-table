@@ -56,20 +56,37 @@ export class OverviewApp extends HandlebarsApplicationMixin(ApplicationV2) {
     return t("SFT.Overview.title");
   }
 
+  /**
+   * The players of the table with their progress. A sample window gives made-up ones instead.
+   * @returns {{user: {id: string, name: string, color: string, active: boolean, character: string}, progress: object}[]}
+   */
+  _rows() {
+    return game.users.filter(user => !user.isGM).map(user => ({
+      user: {id: user.id, name: user.name, color: user.color?.css ?? user.color ?? "#888888", active: user.active,
+        character: characterOf(user)?.name ?? ""},
+      progress: progressOf(user)
+    }));
+  }
+
+  /** Who is offered the tour on its own: "auto", "gm" or "off". */
+  _mode() {
+    return setting("offer");
+  }
+
   /** @override */
   async _prepareContext() {
     const offered = offeredSteps(setting("steps"));
     const chapters = offeredChapters(setting("chapters"));
     const ctx = permissiveContext(game.system.id);
-    const players = game.users.filter(user => !user.isGM).map(user => {
-      const summary = playerSummary(progressOf(user), {offered, chapters, ctx: {...ctx, character: !!characterOf(user)}});
+    const players = this._rows().map(({user, progress}) => {
+      const summary = playerSummary(progress, {offered, chapters, ctx: {...ctx, character: !!user.character}});
       const status = summary.status;
       return {
         id: user.id,
         name: user.name,
         color: user.color?.css ?? user.color ?? "#888888",
         active: user.active,
-        character: characterOf(user)?.name ?? "",
+        character: user.character ?? "",
         status,
         statusLabel: t(`SFT.Overview.status.${status}`),
         done: summary.done,
@@ -87,7 +104,7 @@ export class OverviewApp extends HandlebarsApplicationMixin(ApplicationV2) {
           tooltip: t("SFT.Overview.offerChapter", {chapter: t(`SFT.CHAPTERS.${c.id}.title`)})}))
       };
     });
-    const mode = setting("offer");
+    const mode = this._mode();
     return {
       theme: setting("theme"),
       players,
@@ -141,6 +158,7 @@ export class OverviewApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
   /** The GM ticked or unticked a step. */
   async #saveSteps() {
+    if ( this.isSample ) return;
     const offered = [...this.element.querySelectorAll("input[data-step]")].filter(box => box.checked)
       .map(box => box.dataset.step);
     await game.settings.set(MODULE_ID, "steps", stepsSetting(offered));
@@ -150,6 +168,7 @@ export class OverviewApp extends HandlebarsApplicationMixin(ApplicationV2) {
 
   /** The GM ticked or unticked a chapter. */
   async #saveChapters() {
+    if ( this.isSample ) return;
     const offered = [...this.element.querySelectorAll("input[data-chapter]")].filter(box => box.checked)
       .map(box => box.dataset.chapter);
     await game.settings.set(MODULE_ID, "chapters", chaptersSetting(offered));

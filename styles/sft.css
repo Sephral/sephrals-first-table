@@ -36,6 +36,21 @@
 
 /* The card */
 
+/* The sample windows show cards side by side instead of floating */
+.sft-sample-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 4px;
+}
+
+.sft-sample-cards .sft-card {
+  position: static;
+  animation: none;
+}
+
+
 .sft-card {
   position: fixed;
   left: 84px;

@@ -216,6 +216,7 @@ The first button in the module settings, *Sephral’s Modules* (GMs only), opens
 | `reset(user)` | GM. Forgets everything stored about a player. |
 | `openOverview()` | GM. Opens the player overview. |
 | `runSelfTest()` | GM. Runs the self test. |
+| `samples()` | The sample windows for translators and testers: the guide card at every step and state and the overview with made-up players (Lena, Tom, Sam, Jo). Nothing is started or saved. |
 | `saveDebugFile()` | GM. Saves the debug file. |
 
 The module stores the progress of each player with that player's user. Nothing is stored in actors, scenes, journals or the chat. The chapters and steps the GM turned off are world settings.

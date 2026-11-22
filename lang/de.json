@@ -555,6 +555,15 @@
       "extras": {
         "title": "Praktische Extras"
       }
+    },
+    "Sample": {
+      "groupCard": "Einführungskarte",
+      "offers": "Angebote",
+      "menu": "Kapitelliste",
+      "done": "Geschafft, eingeklappt und Tipps",
+      "overviewPlayers": "Spieler an verschiedenen Stellen",
+      "overviewMore": "Weitere Zustände, nur vom SL angeboten",
+      "overviewEmpty": "Keine Spieler, nie angeboten"
     }
   }
 }

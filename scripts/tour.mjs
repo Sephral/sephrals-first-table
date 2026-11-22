@@ -387,7 +387,7 @@ function sheetLacks(id) {
  * @param {{total: number, done: number, skipped: number}} summary
  * @returns {object}
  */
-function stepModel(step, summary) {
+function stepModel(step, summary, chapter = state.chapter, folded = state.folded) {
   const def = STEP_DEFS[step.id];
   const done = summary.done + summary.skipped;
   const missing = step.missing[0];
@@ -399,7 +399,7 @@ function stepModel(step, summary) {
   return {
     mode: "step",
     icon: def.icon,
-    kicker: t("SFT.card.kicker", {chapter: chapterTitle(state.chapter), n: Math.min(done + 1, summary.total), total: summary.total}),
+    kicker: t("SFT.card.kicker", {chapter: chapterTitle(chapter), n: Math.min(done + 1, summary.total), total: summary.total}),
     title: t(`SFT.STEPS.${step.id}.title`),
     text: t(doKey(step.id, game.system.id, has, game.release.generation, "text")),
     todo: t(doKey(step.id, game.system.id, has, game.release.generation)),
@@ -407,7 +407,7 @@ function stepModel(step, summary) {
     progress: {total: summary.total, done},
     buttons,
     link: {action: "stop", label: t("SFT.card.stop")},
-    folded: state.folded
+    folded
   };
 }
 
@@ -468,18 +468,27 @@ function finish() {
   state.progress = p;
   persist();
   trace.add("finished", {chapter, preview: state.preview});
-  const next = nextChapter(chapter);
+  showCard(doneModel(chapter, nextChapter(chapter)));
+  later(() => {
+    if ( !state.step && (state.view === "done") ) hideCard();
+  }, DONE_MS);
+}
+
+/**
+ * The card after the last step of a chapter.
+ * @param {string} chapter
+ * @param {string|null} next   The chapter offered next, if any
+ * @returns {object}
+ */
+function doneModel(chapter, next) {
   const buttons = [];
   if ( next ) buttons.push({action: `chapter:${next}`, label: t("SFT.done.next", {chapter: chapterTitle(next)}), primary: true,
     icon: "fa-solid fa-play"});
   buttons.push({action: "menu", label: t("SFT.done.pick"), icon: "fa-solid fa-list"});
   buttons.push({action: "close", label: t("SFT.card.close"), primary: !next});
-  showCard({mode: "done", icon: "fa-solid fa-flag-checkered", kicker: t("SFT.done.kicker"),
+  return {mode: "done", icon: "fa-solid fa-flag-checkered", kicker: t("SFT.done.kicker"),
     title: (chapter === CHAPTER_IDS[0]) ? t("SFT.done.title") : t("SFT.done.chapterTitle", {chapter: chapterTitle(chapter)}),
-    text: t(next ? "SFT.done.more" : "SFT.done.all"), buttons, link: {action: "again", label: t("SFT.card.again")}});
-  later(() => {
-    if ( !state.step && (state.view === "done") ) hideCard();
-  }, DONE_MS);
+    text: t(next ? "SFT.done.more" : "SFT.done.all"), buttons, link: {action: "again", label: t("SFT.card.again")}};
 }
 
 /** Store the progress, unless a GM is only looking at the tour. */
@@ -500,10 +509,21 @@ function showOffer(kind) {
   state.step = null;
   state.view = kind;
   listenFor(null);
-  const name = game.user.name;
   const chapter = (kind === "invited") ? inviteChapterOf() : firstChapter();
+  showCard(offerModel(kind, game.user.name, chapter));
+  trace.add("offered", {kind, chapter});
+}
+
+/**
+ * The card that offers the tour.
+ * @param {"offer"|"invited"} kind
+ * @param {string} name      The player's name
+ * @param {string} chapter   The chapter the offer names
+ * @returns {object}
+ */
+function offerModel(kind, name, chapter) {
   const named = (kind === "invited") && (chapter !== CHAPTER_IDS[0]);
-  showCard({
+  return {
     mode: kind,
     icon: named ? CHAPTERS.find(c => c.id === chapter).icon : "fa-solid fa-compass",
     kicker: t("SFT.offer.kicker"),
@@ -515,8 +535,7 @@ function showOffer(kind) {
       {action: "later", label: t("SFT.offer.later")}
     ],
     link: {action: "known", label: t("SFT.offer.known")}
-  });
-  trace.add("offered", {kind, chapter});
+  };
 }
 
 /** The menu card the help button opens when no step is on the card: a list of the chapters. */
@@ -528,7 +547,15 @@ function showMenu() {
   state.view = "menu";
   listenFor(null);
   hideRing();
-  const p = state.progress ?? progressOf();
+  showCard(menuModel(state.progress ?? progressOf()));
+}
+
+/**
+ * The card with the list of chapters.
+ * @param {object} p   The player's progress
+ * @returns {object}
+ */
+function menuModel(p) {
   const ids = offeredChapterIds();
   const ctx = permissiveContext(game.system.id);
   const list = ids.map(id => {
@@ -542,8 +569,8 @@ function showMenu() {
   });
   let text = t("SFT.menu.intro");
   if ( p.status === STATUS.EXPERIENCED ) text = t("SFT.menu.experienced");
-  showCard({mode: "menu", icon: "fa-solid fa-compass", kicker: t("SFT.menu.kicker"), title: t("SFT.menu.title"), text,
-    list, buttons: [], link: {action: "close", label: t("SFT.card.close")}});
+  return {mode: "menu", icon: "fa-solid fa-compass", kicker: t("SFT.menu.kicker"), title: t("SFT.menu.title"), text,
+    list, buttons: [], link: {action: "close", label: t("SFT.card.close")}};
 }
 
 /**
@@ -651,6 +678,19 @@ function maybeTip(tip) {
 }
 
 /**
+ * The card of a tip.
+ * @param {string} tip
+ * @returns {object}
+ */
+function tipModel(tip) {
+  return {mode: "tip", icon: "fa-solid fa-swords", kicker: t("SFT.tip.kicker"), title: t(`SFT.TIPS.${tip}.title`),
+    text: t(`SFT.TIPS.${tip}.text`), buttons: [
+      {action: "tipStart", label: t("SFT.tip.start"), primary: true, icon: "fa-solid fa-play"},
+      {action: "tipLater", label: t("SFT.tip.later")}
+    ], link: {action: "tipOff", label: t("SFT.tip.off")}};
+}
+
+/**
  * Draw the card of a tip.
  * @param {string} tip
  */
@@ -661,11 +701,7 @@ function showTip(tip) {
   state.tip = tip;
   listenFor(null);
   hideRing();
-  showCard({mode: "tip", icon: "fa-solid fa-swords", kicker: t("SFT.tip.kicker"), title: t(`SFT.TIPS.${tip}.title`),
-    text: t(`SFT.TIPS.${tip}.text`), buttons: [
-      {action: "tipStart", label: t("SFT.tip.start"), primary: true, icon: "fa-solid fa-play"},
-      {action: "tipLater", label: t("SFT.tip.later")}
-    ], link: {action: "tipOff", label: t("SFT.tip.off")}});
+  showCard(tipModel(tip));
   later(() => {
     if ( state.view === "tip" ) {
       state.view = "";
@@ -701,10 +737,21 @@ function complete(id) {
   if ( state.folded ) return renderStep();
   const list = plan();
   const c = counts(list);
-  showCard({mode: "flash", icon: "fa-solid fa-circle-check", kicker: t("SFT.card.kicker", {chapter: chapterTitle(state.chapter),
-    n: Math.min(c.done + c.skipped, c.total), total: c.total}), title: t(doneKey(id, key => game.i18n.has(key))),
-  progress: {total: c.total, done: c.done + c.skipped}});
+  showCard(flashModel(id, c, state.chapter));
   later(renderStep, FLASH_MS);
+}
+
+/**
+ * The short card after a step is done.
+ * @param {string} id
+ * @param {{total: number, done: number, skipped: number}} c
+ * @param {string} chapter
+ * @returns {object}
+ */
+function flashModel(id, c, chapter) {
+  return {mode: "flash", icon: "fa-solid fa-circle-check", kicker: t("SFT.card.kicker", {chapter: chapterTitle(chapter),
+    n: Math.min(c.done + c.skipped, c.total), total: c.total}), title: t(doneKey(id, key => game.i18n.has(key))),
+  progress: {total: c.total, done: c.done + c.skipped}};
 }
 
 /** Skip the current step. */
@@ -911,5 +958,8 @@ export function redraw() {
   else if ( state.view === "tip" ) showTip(state.tip);
   else if ( state.view === "done" ) hideCard();
 }
+
+/** The cards as data, for the sample windows (building one shows or stores nothing). */
+export const cardModels = {step: stepModel, flash: flashModel, done: doneModel, offer: offerModel, menu: menuModel, tip: tipModel};
 
 export const __test__ = {OFFER_DELAY, FLASH_MS, TIP_MS};

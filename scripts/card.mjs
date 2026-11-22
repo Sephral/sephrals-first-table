@@ -79,6 +79,16 @@ export function showCard(model) {
   keepOnScreen();
 }
 
+/**
+ * The markup of a card as an element that does not float (for the sample windows): the same card or pill as on the screen.
+ * @param {object} model   See showCard
+ * @returns {string}
+ */
+export function cardMarkup(model) {
+  return `<aside class="sft-card${model.folded ? " is-folded" : ""}" data-mode="${esc(model.mode)}" data-sft-theme="${
+    esc(setting("theme"))}" aria-label="${esc(t("SFT.card.label"))}">${model.folded ? pillHtml(model) : cardHtml(model)}</aside>`;
+}
+
 /** Remove the card. */
 export function hideCard() {
   card?.remove();

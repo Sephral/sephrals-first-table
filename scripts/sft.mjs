@@ -2,6 +2,7 @@ import {MODULE_ID, TESTED_VERSIONS, openSettings, setting} from "./config.mjs";
 import {registerDebug} from "./debug.mjs";
 import {saveDebugFile} from "./debug-file.mjs";
 import {registerHubModule} from "./hub.mjs";
+import {sampleWindows} from "./sample-windows.mjs";
 import {applyModuleLanguage} from "./language.mjs";
 import {openOverview, refreshOverview, syncSteps} from "./overview-app.mjs";
 import {inviteUser, progressOf, resetUser, saveProgress, touchesFlags} from "./progress.mjs";
@@ -91,6 +92,8 @@ Hooks.once("init", () => {
     openOverview,
     /** Check the module (GM). */
     runSelfTest,
+    /** The sample windows (tour card at every step, overview with made-up players), nothing is saved. */
+    samples: () => sampleWindows(),
     /** Save the debug file of Sephral's modules (GM). */
     saveDebugFile: messageId => saveDebugFile(messageId ?? null, {moduleId: MODULE_ID})
   };
